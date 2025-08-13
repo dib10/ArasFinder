@@ -131,10 +131,7 @@ export function LinkedInSearchForm() {
                   <div className="text-sm text-yellow-800">
                     <p className="font-medium mb-1">Aviso:</p>
                     <p>
-                      O modo Poderoso pode causar um bug visual na página do LinkedIn, que talvez mostre filtros
-                      de senioridade incorretos selecionados (como "Júnior"). Apesar disso, a lista de vagas ainda
-                      será filtrada corretamente pelo texto e pelos operadores NOT, tornando a busca mais
-                      rigorosa.
+                      O modo Poderoso está em testes. A busca será filtrada corretamente pelos operadores NOT, tornando-a mais rigorosa.
                     </p>
                   </div>
                 </div>

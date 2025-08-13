@@ -56,7 +56,7 @@ export default function JobSearchOptimizer() {
             <div>
               <p className="text-sm font-semibold">LinkedIn:</p>
               <p className="text-sm">• Modo Preciso: Usa apenas filtros nativos (f_E, f_TPR, f_WT)</p>
-              <p className="text-sm">• Modo Poderoso: Combina filtros nativos + operadores NOT</p>
+              <p className="text-sm">• Modo Poderoso: Combina filtros nativos + operadores NOT - Em testes, pode apresentar inconsistências</p>
               <p className="text-sm">• Keywords limpas ou com exclusões conforme o modo</p>
             </div>
             <div>

@@ -66,6 +66,9 @@ export const linkedinExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "PL",
+    "SR",
   ],
   assistente: [
     "Estágio",
@@ -81,6 +84,9 @@ export const linkedinExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "PL",
+    "SR",
   ],
   junior: [
     "Estágio",
@@ -95,6 +101,8 @@ export const linkedinExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "PL",
+    "SR",
   ],
   pleno: [
     "Estágio",
@@ -110,6 +118,8 @@ export const linkedinExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "SR",
   ],
   senior: [
     "Estágio",
@@ -122,6 +132,8 @@ export const linkedinExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "PL",
   ],
   diretor: [
     "Estágio",
@@ -163,6 +175,9 @@ export const indeedExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "PL",
+    "SR",
   ],
   junior: [
     "Estágio",
@@ -176,6 +191,8 @@ export const indeedExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "PL",
+    "SR",
   ],
   pleno: [
     "Estágio",
@@ -190,6 +207,8 @@ export const indeedExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "SR",
   ],
   senior: [
     "Estágio",
@@ -201,6 +220,8 @@ export const indeedExclusions = {
     "Coordenador",
     "Gerente",
     "Diretor",
+    "JR",
+    "PL",
   ],
   especialista: [
     "Estágio",
