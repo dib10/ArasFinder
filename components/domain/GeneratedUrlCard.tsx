@@ -38,10 +38,10 @@ export function GeneratedUrlCard({ url, platform, title }: GeneratedUrlCardProps
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-green-700">{title}</CardTitle>
+        <CardTitle className="text-green-700 dark:text-green-400">{title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <Textarea value={url} readOnly className="min-h-[100px] text-sm bg-gray-50" />
+        <Textarea value={url} readOnly className="min-h-[100px] text-sm" />
         <div className="flex gap-3">
           <Button onClick={openInBrowser} className={`flex-1 ${buttonColor}`}>
             <ExternalLink className="mr-2 h-4 w-4" />

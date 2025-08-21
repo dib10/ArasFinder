@@ -5,20 +5,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Search, Briefcase, Heart, Coffee } from "lucide-react"
 import { LinkedInSearchForm } from "@/components/domain/LinkedInSearchForm"
 import { IndeedSearchForm } from "@/components/domain/IndeedSearchForm"
+import { ThemeToggle } from "@/components/ui/ThemeToggle"
 
 export default function JobSearchOptimizer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Aras Finder</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+        <div className="text-center mb-8 relative">
+
+          <div className="absolute top-0 right-0">
+            <ThemeToggle />
+          </div>
+          
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aras Finder</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
             O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos
             e filtros avançados.
           </p>
           <div className="flex justify-center mb-6">
             <img
-              src="/gizmo-pixel.png"
+              src="/gizmo-3d.png"
               alt="Aras Finder - Gizmo Pixelado"
               className="w-24 h-24 pixelated"
               style={{ imageRendering: "pixelated" }}
