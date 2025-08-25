@@ -3,7 +3,6 @@ import { useToast } from "@/hooks/use-toast"
 import { buildIndeedOptimizedKeywords, sanitizeUserInput } from "@/lib/search-builder"
 
 export function useIndeedSearch() {
-  const [indeedKeywords, setIndeedKeywords] = useState("")
   const [indeedSeniority, setIndeedSeniority] = useState("any")
   const [indeedTimePosted, setIndeedTimePosted] = useState("any")
   const [indeedLocation, setIndeedLocation] = useState("")
@@ -12,8 +11,8 @@ export function useIndeedSearch() {
 
   const { toast } = useToast()
 
-  const generateIndeedUrl = () => {
-    if (!indeedKeywords.trim()) {
+  const generateIndeedUrl = (keywords: string) => {
+    if (!keywords.trim()) {
       toast({
         title: "Campo obrigatório",
         description: "Por favor, insira pelo menos uma palavra-chave para busca.",
@@ -27,7 +26,7 @@ export function useIndeedSearch() {
 
     // Construir query otimizada
     const optimizedKeywords = buildIndeedOptimizedKeywords(
-      indeedKeywords,
+      keywords,
       indeedSeniority,
       indeedWorkModel
     )
@@ -63,7 +62,6 @@ export function useIndeedSearch() {
 
   return {
     // Estados
-    indeedKeywords,
     indeedSeniority,
     indeedTimePosted,
     indeedLocation,
@@ -71,7 +69,6 @@ export function useIndeedSearch() {
     indeedGeneratedUrl,
     
     // Setters
-    setIndeedKeywords,
     setIndeedSeniority,
     setIndeedTimePosted,
     setIndeedLocation,

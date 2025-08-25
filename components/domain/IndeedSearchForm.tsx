@@ -13,15 +13,18 @@ import {
   workModelOptions 
 } from "@/config/filters"
 
-export function IndeedSearchForm() {
+interface IndeedSearchFormProps {
+  keywords: string
+  setKeywords: (value: string) => void
+}
+
+export function IndeedSearchForm({ keywords, setKeywords }: IndeedSearchFormProps) {
   const {
-    indeedKeywords,
     indeedSeniority,
     indeedTimePosted,
     indeedLocation,
     indeedWorkModel,
     indeedGeneratedUrl,
-    setIndeedKeywords,
     setIndeedSeniority,
     setIndeedTimePosted,
     setIndeedLocation,
@@ -50,8 +53,8 @@ export function IndeedSearchForm() {
               id="indeed-keywords"
               type="text"
               placeholder="Ex: Engenheiro de Dados, Analista de Sistemas"
-              value={indeedKeywords}
-              onChange={(e) => setIndeedKeywords(e.target.value)}
+              value={keywords}
+              onChange={(e) => setKeywords(e.target.value)}
             />
           </div>
 
@@ -121,7 +124,7 @@ export function IndeedSearchForm() {
           </div>
 
           <Button
-            onClick={generateIndeedUrl}
+            onClick={() => generateIndeedUrl(keywords)}
             className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-lg"
             size="lg"
           >

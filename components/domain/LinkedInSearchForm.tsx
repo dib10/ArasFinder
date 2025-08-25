@@ -14,16 +14,19 @@ import {
   searchModeOptions 
 } from "@/config/filters"
 
-export function LinkedInSearchForm() {
+interface LinkedInSearchFormProps {
+  keywords: string
+  setKeywords: (value: string) => void
+}
+
+export function LinkedInSearchForm({ keywords, setKeywords }: LinkedInSearchFormProps) {
   const {
-    linkedinKeywords,
     linkedinSeniority,
     linkedinTimePosted,
     linkedinLocation,
     linkedinWorkModel,
     linkedinGeneratedUrl,
     linkedinSearchMode,
-    setLinkedinKeywords,
     setLinkedinSeniority,
     setLinkedinTimePosted,
     setLinkedinLocation,
@@ -53,8 +56,8 @@ export function LinkedInSearchForm() {
               id="linkedin-keywords"
               type="text"
               placeholder="Ex: Engenheiro de Software, Product Manager, Python"
-              value={linkedinKeywords}
-              onChange={(e) => setLinkedinKeywords(e.target.value)}
+              value={keywords}
+              onChange={(e) => setKeywords(e.target.value)}
             />
           </div>
 
@@ -156,7 +159,7 @@ export function LinkedInSearchForm() {
           </div>
 
           <Button
-            onClick={generateLinkedInUrl}
+            onClick={() => generateLinkedInUrl(keywords)}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
             size="lg"
           >

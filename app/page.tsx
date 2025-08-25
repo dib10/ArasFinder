@@ -6,8 +6,10 @@ import { Search, Briefcase, Heart, Coffee } from "lucide-react"
 import { LinkedInSearchForm } from "@/components/domain/LinkedInSearchForm"
 import { IndeedSearchForm } from "@/components/domain/IndeedSearchForm"
 import { ThemeToggle } from "@/components/ui/ThemeToggle"
+import { useState } from "react"
 
 export default function JobSearchOptimizer() {
+  const [keywords, setKeywords] = useState("")
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
@@ -45,11 +47,11 @@ export default function JobSearchOptimizer() {
           </TabsList>
 
           <TabsContent value="linkedin">
-            <LinkedInSearchForm />
+            <LinkedInSearchForm keywords={keywords} setKeywords={setKeywords} />
           </TabsContent>
 
           <TabsContent value="indeed">
-            <IndeedSearchForm />
+            <IndeedSearchForm keywords={keywords} setKeywords={setKeywords} />
           </TabsContent>
         </Tabs>
 

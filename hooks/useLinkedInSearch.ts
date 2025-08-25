@@ -4,7 +4,6 @@ import { buildLinkedInOptimizedKeywords, sanitizeUserInput } from "@/lib/search-
 import { linkedinSeniorityMap, linkedinWorkModelMap } from "@/config/filters"
 
 export function useLinkedInSearch() {
-  const [linkedinKeywords, setLinkedinKeywords] = useState("")
   const [linkedinSeniority, setLinkedinSeniority] = useState("any")
   const [linkedinTimePosted, setLinkedinTimePosted] = useState("any")
   const [linkedinLocation, setLinkedinLocation] = useState("")
@@ -14,8 +13,8 @@ export function useLinkedInSearch() {
 
   const { toast } = useToast()
 
-  const generateLinkedInUrl = () => {
-    if (!linkedinKeywords.trim()) {
+  const generateLinkedInUrl = (keywords: string) => {
+    if (!keywords.trim()) {
       toast({
         title: "Campo obrigatório",
         description: "Por favor, insira pelo menos uma palavra-chave para busca.",
@@ -29,7 +28,7 @@ export function useLinkedInSearch() {
 
     // Construir keywords otimizadas
     const optimizedKeywords = buildLinkedInOptimizedKeywords(
-      linkedinKeywords,
+      keywords,
       linkedinSeniority,
       linkedinSearchMode
     )
@@ -73,7 +72,6 @@ export function useLinkedInSearch() {
 
   return {
     // Estados
-    linkedinKeywords,
     linkedinSeniority,
     linkedinTimePosted,
     linkedinLocation,
@@ -82,7 +80,6 @@ export function useLinkedInSearch() {
     linkedinSearchMode,
     
     // Setters
-    setLinkedinKeywords,
     setLinkedinSeniority,
     setLinkedinTimePosted,
     setLinkedinLocation,
