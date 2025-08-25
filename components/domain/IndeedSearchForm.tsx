@@ -52,7 +52,7 @@ export function IndeedSearchForm({ keywords, setKeywords }: IndeedSearchFormProp
             <Input
               id="indeed-keywords"
               type="text"
-              placeholder="Ex: Engenheiro de Dados, Analista de Sistemas"
+              placeholder="Ex: Engenheiro de Software, React, AWS"
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />

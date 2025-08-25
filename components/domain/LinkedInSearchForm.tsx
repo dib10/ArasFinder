@@ -55,7 +55,7 @@ export function LinkedInSearchForm({ keywords, setKeywords }: LinkedInSearchForm
             <Input
               id="linkedin-keywords"
               type="text"
-              placeholder="Ex: Engenheiro de Software, Product Manager, Python"
+              placeholder="Ex: Engenheiro de Software, Python, AWS"
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />
