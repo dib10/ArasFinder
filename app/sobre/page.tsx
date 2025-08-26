@@ -10,7 +10,7 @@ export default function Sobre() {
             <Link href="/" className="text-blue-600 hover:text-blue-800 transition-colors">&larr; Voltar para a Home</Link>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 my-4">Sobre o Aras Finder</h1>
             <img
-              src="/gizmo-pixel.png"
+              src="/gizmo-3d.png"
               alt="Aras Finder - Gizmo Pixelado"
               className="w-24 h-24 pixelated mx-auto my-4"
               style={{ imageRendering: "pixelated" }}
@@ -24,7 +24,6 @@ export default function Sobre() {
           <CardContent className="space-y-4 text-gray-700 dark:text-gray-300">
             <p>A busca por uma nova oportunidade de carreira pode ser um processo desgastante e repetitivo. Muitas vezes, as plataformas de emprego mostram vagas que não correspondem exatamente ao que procuramos, fazendo-nos perder tempo a filtrar manualmente os resultados.</p>
             <p>O <strong>Aras Finder</strong> nasceu da necessidade de simplificar e otimizar este processo. A nossa missão é dar aos profissionais as ferramentas para que encontrem as vagas certas de forma mais rápida e inteligente, utilizando o poder da tecnologia para criar buscas que as interfaces padrão nem sempre permitem.</p>
-            <p>Acreditamos que, com a busca certa, a sua vaga de sonho está apenas a um clique de distância.</p>
           </CardContent>
         </Card>
 
