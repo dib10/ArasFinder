@@ -33,7 +33,6 @@ export default function Sobre() {
           </CardHeader>
           <CardContent className="space-y-4 text-gray-700 dark:text-gray-300">
             <p>Este projeto foi desenvolvido por <a href="https://github.com/dib10" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-800 transition-colors">dib10</a>, um entusiasta de tecnologia apaixonado por criar soluções que resolvem problemas reais.</p>
-            <p>Se esta ferramenta foi útil para si, considere apoiar o projeto com um café. O seu apoio ajuda a manter o site no ar e a financiar o desenvolvimento de novas funcionalidades!</p>
           </CardContent>
         </Card>
 

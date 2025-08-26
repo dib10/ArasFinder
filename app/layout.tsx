@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   description:
     "O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos e filtros avançados.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/gizmo-3d.png",
+    shortcut: "/gizmo-3d.png",
+    apple: "/gizmo-3d.png",
   },
     generator: 'v0.dev'
 }
