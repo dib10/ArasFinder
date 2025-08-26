@@ -22,11 +22,23 @@ function processAndQuoteKeywords(keywords: string): string {
 export function buildLinkedInOptimizedKeywords(
   baseKeywords: string,
   selectedSeniority: string,
-  searchMode: string
+  searchMode: string,
+  exclusionKeywords?: string
 ): string {
   if (!baseKeywords.trim()) return ""
 
   let optimizedKeywords = processAndQuoteKeywords(baseKeywords)
+
+  // Exclusões manuais via NOT "termo"
+  if (exclusionKeywords && exclusionKeywords.trim()) {
+    const manualExclusions = exclusionKeywords
+      .split(',')
+      .map((term) => term.trim())
+      .filter((term) => term.length > 0)
+      .map((term) => `NOT "${term}"`)
+      .join(' ')
+    optimizedKeywords = `${optimizedKeywords} ${manualExclusions}`
+  }
 
   // Se modo "Preciso", retorna apenas as keywords limpas
   if (searchMode === "preciso") {
@@ -52,12 +64,24 @@ export function buildLinkedInOptimizedKeywords(
 export function buildIndeedOptimizedKeywords(
   baseKeywords: string,
   selectedSeniority: string,
-  workModel: string
+  workModel: string,
+  exclusionKeywords?: string
 ): string {
   if (!baseKeywords.trim()) return ""
 
   // Processa com aspas e troca AND por espaço (Indeed)
   let optimizedKeywords = processAndQuoteKeywords(baseKeywords).replace(/\s+AND\s+/g, ' ')
+
+  // Exclusões manuais via -"termo"
+  if (exclusionKeywords && exclusionKeywords.trim()) {
+    const manualExclusions = exclusionKeywords
+      .split(',')
+      .map((term) => term.trim())
+      .filter((term) => term.length > 0)
+      .map((term) => `-"${term}"`)
+      .join(' ')
+    optimizedKeywords = `${optimizedKeywords} ${manualExclusions}`
+  }
 
   // Lógica de exclusão para Indeed usando operador -
   if (selectedSeniority !== "any") {

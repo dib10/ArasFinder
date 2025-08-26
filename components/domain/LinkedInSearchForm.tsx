@@ -17,9 +17,11 @@ import {
 interface LinkedInSearchFormProps {
   keywords: string
   setKeywords: (value: string) => void
+  exclusionKeywords: string
+  setExclusionKeywords: (value: string) => void
 }
 
-export function LinkedInSearchForm({ keywords, setKeywords }: LinkedInSearchFormProps) {
+export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, setExclusionKeywords }: LinkedInSearchFormProps) {
   const {
     linkedinSeniority,
     linkedinTimePosted,
@@ -58,6 +60,19 @@ export function LinkedInSearchForm({ keywords, setKeywords }: LinkedInSearchForm
               placeholder="Ex: Engenheiro de Software, Python, AWS"
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="linkedin-exclusion-keywords" className="text-sm font-medium">
+              Excluir Palavras-chave (separadas por vírgula)
+            </Label>
+            <Input
+              id="linkedin-exclusion-keywords"
+              type="text"
+              placeholder="Ex: Angular, PHP, Cobol"
+              value={exclusionKeywords}
+              onChange={(e) => setExclusionKeywords(e.target.value)}
             />
           </div>
 
@@ -159,7 +174,7 @@ export function LinkedInSearchForm({ keywords, setKeywords }: LinkedInSearchForm
           </div>
 
           <Button
-            onClick={() => generateLinkedInUrl(keywords)}
+            onClick={() => generateLinkedInUrl(keywords, exclusionKeywords)}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
             size="lg"
           >

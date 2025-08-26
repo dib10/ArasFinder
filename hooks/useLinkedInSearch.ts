@@ -13,7 +13,7 @@ export function useLinkedInSearch() {
 
   const { toast } = useToast()
 
-  const generateLinkedInUrl = (keywords: string) => {
+  const generateLinkedInUrl = (keywords: string, exclusionKeywords: string) => {
     if (!keywords.trim()) {
       toast({
         title: "Campo obrigatório",
@@ -26,11 +26,12 @@ export function useLinkedInSearch() {
     const baseUrl = "https://www.linkedin.com/jobs/search/"
     const params = new URLSearchParams()
 
-    // Construir keywords otimizadas
+    // Construir keywords otimizadas, incluindo exclusões manuais
     const optimizedKeywords = buildLinkedInOptimizedKeywords(
       keywords,
       linkedinSeniority,
-      linkedinSearchMode
+      linkedinSearchMode,
+      exclusionKeywords
     )
     params.append("keywords", optimizedKeywords)
 

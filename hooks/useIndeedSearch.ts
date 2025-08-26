@@ -11,7 +11,7 @@ export function useIndeedSearch() {
 
   const { toast } = useToast()
 
-  const generateIndeedUrl = (keywords: string) => {
+  const generateIndeedUrl = (keywords: string, exclusionKeywords: string) => {
     if (!keywords.trim()) {
       toast({
         title: "Campo obrigatório",
@@ -24,11 +24,12 @@ export function useIndeedSearch() {
     const baseUrl = "https://br.indeed.com/jobs"
     const params = new URLSearchParams()
 
-    // Construir query otimizada
+    // Construir query otimizada, incluindo exclusões manuais
     const optimizedKeywords = buildIndeedOptimizedKeywords(
       keywords,
       indeedSeniority,
-      indeedWorkModel
+      indeedWorkModel,
+      exclusionKeywords
     )
     params.append("q", optimizedKeywords)
 

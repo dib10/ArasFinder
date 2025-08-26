@@ -16,9 +16,11 @@ import {
 interface IndeedSearchFormProps {
   keywords: string
   setKeywords: (value: string) => void
+  exclusionKeywords: string
+  setExclusionKeywords: (value: string) => void
 }
 
-export function IndeedSearchForm({ keywords, setKeywords }: IndeedSearchFormProps) {
+export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, setExclusionKeywords }: IndeedSearchFormProps) {
   const {
     indeedSeniority,
     indeedTimePosted,
@@ -55,6 +57,19 @@ export function IndeedSearchForm({ keywords, setKeywords }: IndeedSearchFormProp
               placeholder="Ex: Engenheiro de Software, React, AWS"
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="indeed-exclusion-keywords" className="text-sm font-medium">
+              Excluir Palavras-chave (separadas por vírgula)
+            </Label>
+            <Input
+              id="indeed-exclusion-keywords"
+              type="text"
+              placeholder="Ex: Consultoria, Outbound, Vendas"
+              value={exclusionKeywords}
+              onChange={(e) => setExclusionKeywords(e.target.value)}
             />
           </div>
 
@@ -124,7 +139,7 @@ export function IndeedSearchForm({ keywords, setKeywords }: IndeedSearchFormProp
           </div>
 
           <Button
-            onClick={() => generateIndeedUrl(keywords)}
+            onClick={() => generateIndeedUrl(keywords, exclusionKeywords)}
             className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-lg"
             size="lg"
           >

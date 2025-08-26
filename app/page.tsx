@@ -10,6 +10,7 @@ import { useState } from "react"
 
 export default function JobSearchOptimizer() {
   const [keywords, setKeywords] = useState("")
+  const [exclusionKeywords, setExclusionKeywords] = useState("")
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
@@ -47,11 +48,21 @@ export default function JobSearchOptimizer() {
           </TabsList>
 
           <TabsContent value="linkedin">
-            <LinkedInSearchForm keywords={keywords} setKeywords={setKeywords} />
+            <LinkedInSearchForm 
+              keywords={keywords} 
+              setKeywords={setKeywords}
+              exclusionKeywords={exclusionKeywords}
+              setExclusionKeywords={setExclusionKeywords}
+            />
           </TabsContent>
 
           <TabsContent value="indeed">
-            <IndeedSearchForm keywords={keywords} setKeywords={setKeywords} />
+            <IndeedSearchForm 
+              keywords={keywords} 
+              setKeywords={setKeywords}
+              exclusionKeywords={exclusionKeywords}
+              setExclusionKeywords={setExclusionKeywords}
+            />
           </TabsContent>
         </Tabs>
 
@@ -76,34 +87,7 @@ export default function JobSearchOptimizer() {
           </CardContent>
         </Card>
 
-        {/* Footer com créditos e link Buy me a coffee */}
-        <div className="mt-8 text-center space-y-4">
-          <div className="flex items-center justify-center gap-2 text-gray-600">
-            <span>Feito com</span>
-            <Heart className="h-4 w-4 text-red-500 fill-current" />
-            <span>por</span>
-            <a
-              href="https://github.com/dib10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              dib10
-            </a>
-          </div>
-          
-          <div>
-            <a
-              href="https://coff.ee/dib10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-            >
-              <Coffee className="h-4 w-4" />
-              Buy me a coffee
-            </a>
-          </div>
-        </div>
+        
       </div>
     </div>
   )
