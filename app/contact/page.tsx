@@ -28,12 +28,12 @@ export default function Contact() {
               <p className="mb-4">
                 Para questões, sugestões ou feedback sobre a ferramenta:
               </p>
-              <a 
-                href="mailto:contato@aras-finder.vercel.app" 
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-              >
-                contato@aras-finder.vercel.app
-              </a>
+                             <a 
+                 href="mailto:contato.arasfinder@gmail.com" 
+                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+               >
+                 contato.arasfinder@gmail.com
+               </a>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4 mt-6">
