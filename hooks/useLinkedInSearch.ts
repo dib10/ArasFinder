@@ -10,6 +10,7 @@ export function useLinkedInSearch() {
   const [linkedinWorkModel, setLinkedinWorkModel] = useState("any")
   const [linkedinGeneratedUrl, setLinkedinGeneratedUrl] = useState("")
   const [linkedinSearchMode, setLinkedinSearchMode] = useState("preciso")
+  const [linkedinEasyApply, setLinkedinEasyApply] = useState(false)
 
   const { toast } = useToast()
 
@@ -61,6 +62,10 @@ export function useLinkedInSearch() {
       }
     }
 
+    // Easy Apply 
+    if(linkedinEasyApply){
+    params.append("f_AL", "true")    }
+
     // Gerar URL final
     const finalUrl = `${baseUrl}?${params.toString()}`
     setLinkedinGeneratedUrl(finalUrl)
@@ -79,6 +84,7 @@ export function useLinkedInSearch() {
     linkedinWorkModel,
     linkedinGeneratedUrl,
     linkedinSearchMode,
+    linkedinEasyApply,
     
     // Setters
     setLinkedinSeniority,
@@ -86,6 +92,7 @@ export function useLinkedInSearch() {
     setLinkedinLocation,
     setLinkedinWorkModel,
     setLinkedinSearchMode,
+    setLinkedinEasyApply,
     
     // Funções
     generateLinkedInUrl,

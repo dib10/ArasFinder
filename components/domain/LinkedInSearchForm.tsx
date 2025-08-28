@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Search } from "lucide-react"
 import { useLinkedInSearch } from "@/hooks/useLinkedInSearch"
 import { GeneratedUrlCard } from "./GeneratedUrlCard"
+import {Switch} from "@/components/ui/switch"
 import { 
   seniorityOptions, 
   linkedinTimePostedOptions, 
@@ -35,6 +36,8 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
     setLinkedinWorkModel,
     setLinkedinSearchMode,
     generateLinkedInUrl,
+    linkedinEasyApply,
+    setLinkedinEasyApply,
   } = useLinkedInSearch()
 
   return (
@@ -172,6 +175,21 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
               </Select>
             </div>
           </div>
+
+           <div className="space-y-2 flex flex-col justify-end">
+                <div className="flex items-center space-x-2">
+                    <Switch
+                        id="linkedin-easy-apply"
+                        checked={linkedinEasyApply}
+                        onCheckedChange={setLinkedinEasyApply}
+                    />
+                    <Label htmlFor="linkedin-easy-apply" className="cursor-pointer">
+                        Apenas "Candidatura Simplificada"
+                    </Label>
+                </div>
+            </div>
+
+          
 
           <Button
             onClick={() => generateLinkedInUrl(keywords, exclusionKeywords)}
