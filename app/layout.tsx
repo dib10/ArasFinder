@@ -50,6 +50,7 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </ThemeProvider>
+        <Script src="https://fpyf8.com/88/tag.min.js" data-zone="167441" async data-cfasync="false" strategy="afterInteractive"></Script>
       </body>
     </html>
   )
