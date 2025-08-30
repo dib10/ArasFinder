@@ -55,6 +55,14 @@ export default function RootLayout({
             (function(d,z,s,c){s.src='//'+d+'/400/'+z;s.onerror=s.onload=E;function E(){c&&c();c=null}try{(document.body||document.documentElement).appendChild(s)}catch(e){E()}})('stoampaliy.net',9799324,document.createElement('script'),window._thcsctcg)
           `}
         </Script>
+
+        {/* Script Couphaithuph */}
+        <Script
+          src="https://couphaithuph.net/act/files/tag.min.js?z=9799413"
+          data-cfasync="false"
+          async
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
