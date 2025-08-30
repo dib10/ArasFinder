@@ -53,17 +53,7 @@ export default function Privacy() {
               <p className="text-sm">Utilizamos o Google Analytics para analisar o tráfego do nosso site e compreender como os utilizadores interagem com a nossa ferramenta. Esta informação ajuda-nos a melhorar continuamente o serviço.</p>
             </div>
 
-            <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">Google AdSense (ca-pub-4332691486911992)</h4>
-              <p className="text-sm">O Google AdSense utiliza cookies para exibir anúncios personalizados baseados nos seus interesses e comportamento online. Isto inclui o cookie DoubleClick DART, que permite ao Google exibir anúncios relevantes com base nas suas visitas a este e outros sites na internet.</p>
-            </div>
 
-            <p><strong>Cookie DoubleClick DART:</strong> Este cookie específico do Google é utilizado para:</p>
-            <ul className="list-disc list-inside ml-4 space-y-2">
-              <li>Personalizar anúncios com base nos seus interesses</li>
-              <li>Analisar a eficácia das campanhas publicitárias</li>
-              <li>Fornecer anúncios mais relevantes durante a sua navegação</li>
-            </ul>
           </CardContent>
         </Card>
 

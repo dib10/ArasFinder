@@ -29,12 +29,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4332691486911992"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <meta name="monetag" content="c3b61d48dce7ac6b62e94cf9ed7cf13d" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5J9T27K1SZ"
