@@ -56,13 +56,12 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Script Couphaithuph */}
-        <Script
-          src="https://couphaithuph.net/act/files/tag.min.js?z=9799413"
-          data-cfasync="false"
-          async
-          strategy="afterInteractive"
-        />
+        {/* Script Vemtoutcheeg */}
+        <Script id="vemtoutcheeg-script" strategy="afterInteractive">
+          {`
+            (s=>{s.dataset.zone=9799550,s.src='https://vemtoutcheeg.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+          `}
+        </Script>
       </body>
     </html>
   )
