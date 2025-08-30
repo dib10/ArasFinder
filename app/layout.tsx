@@ -50,7 +50,11 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </ThemeProvider>
-        <Script src="https://fpyf8.com/88/tag.min.js" data-zone="167441" async data-cfasync="false" strategy="afterInteractive"></Script>
+        <Script id="monetag-new-zone-script" strategy="afterInteractive">
+          {`
+            (function(d,z,s,c){s.src='//'+d+'/400/'+z;s.onerror=s.onload=E;function E(){c&&c();c=null}try{(document.body||document.documentElement).appendChild(s)}catch(e){E()}})('stoampaliy.net',9799324,document.createElement('script'),window._thcsctcg)
+          `}
+        </Script>
       </body>
     </html>
   )
