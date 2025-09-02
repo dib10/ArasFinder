@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+      <meta name="google" content="notranslate" />
         <meta name="monetag" content="c3b61d48dce7ac6b62e94cf9ed7cf13d" />
         <Script
           async
