@@ -41,6 +41,12 @@ export default function FAQ() {
               O Modo Poderoso adiciona exclusões automáticas à sua busca (ex: se procura "Pleno", ele exclui "Júnior" e "Estágio"). É "experimental" porque, embora seja muito eficaz, o algoritmo do LinkedIn pode por vezes interpretar estas buscas complexas de formas inesperadas. Recomendamos o Modo Preciso para a maioria dos casos.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-5">
+            <AccordionTrigger>Por que estou vendo anúncios no site?</AccordionTrigger>
+            <AccordionContent>
+              O Aras Finder exibe anúncios para ajudar a cobrir os custos de manutenção e hospedagem da ferramenta, mantendo-a gratuita para todos os usuários. Os anúncios são fornecidos por uma rede de publicidade externa e não são de nossa autoria ou responsabilidade. Não temos controle sobre o conteúdo específico dos anúncios exibidos, nem somos responsáveis pelos sites ou produtos anunciados. Recomendamos sempre cautela ao clicar em qualquer anúncio online.
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </div>
     </div>
