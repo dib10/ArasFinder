@@ -27,9 +27,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning translate="no">
       <head>
       <meta name="google" content="notranslate" />
+      <meta name="google-translate" content="notranslate" />
+      <meta httpEquiv="Content-Language" content="pt-BR" />
         <meta name="monetag" content="c3b61d48dce7ac6b62e94cf9ed7cf13d" />
         <Script
           async

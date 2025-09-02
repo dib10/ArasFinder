@@ -88,3 +88,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Disable Google Translate */
+.notranslate {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform: none !important;
+}
+
+body {
+  translate: no;
+}
