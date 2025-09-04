@@ -1,0 +1,272 @@
+{
+  "HomePage": {
+    "description": "O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos e filtros avançados.",
+    "howItWorks": {
+      "title": "Como o Aras Finder Otimiza Suas Buscas",
+      "linkedin": {
+        "precise": "• Modo Preciso: Usa apenas filtros nativos (f_E, f_TPR, f_WT)",
+        "powerful": "• Modo Poderoso: Combina filtros nativos + operadores NOT - Em testes, pode apresentar inconsistências",
+        "keywords": "• Keywords limpas ou com exclusões conforme o modo"
+      },
+      "indeed": {
+        "exclusions": "• Usa operador \"-\" para exclusões (ex: -Pleno -Senior)",
+        "remote": "• Trabalho remoto via palavra-chave + parâmetro especial (sc)",
+        "dateFilter": "• Filtro de data via parâmetro \"fromage\" (1, 3, 7, 14 dias)"
+      }
+    }
+  },
+  "LinkedInForm": {
+    "title": "Aras Finder - LinkedIn",
+    "description": "Configure sua busca no LinkedIn com operadores booleanos avançados.",
+    "keywords": {
+      "label": "Cargo, Palavra-chave ou Tecnologia *",
+      "placeholder": "Ex: Engenheiro de Software, Python, AWS"
+    },
+    "exclusionKeywords": {
+      "label": "Excluir Palavras-chave (separadas por vírgula)",
+      "placeholder": "Ex: Angular, PHP, Cobol"
+    },
+    "seniority": {
+      "label": "Senioridade Desejada"
+    },
+    "timePosted": {
+      "label": "Publicado há"
+    },
+    "location": {
+      "label": "Localidade",
+      "placeholder": "Ex: São Paulo, Brasil"
+    },
+    "searchMode": {
+      "label": "Modo de Busca"
+    },
+    "workModel": {
+      "label": "Modelo de Trabalho"
+    },
+    "easyApply": {
+      "label": "Apenas \"Candidatura Simplificada\""
+    },
+    "generateButton": "Gerar Link LinkedIn",
+    "warning": {
+      "title": "Aviso:",
+      "message": "O modo Poderoso está em testes. A busca será filtrada corretamente pelos operadores NOT, tornando-a mais rigorosa."
+    }
+  },
+  "IndeedForm": {
+    "title": "Aras Finder - Indeed",
+    "description": "Configure sua busca no Indeed com operadores de exclusão específicos.",
+    "keywords": {
+      "label": "O quê? (Cargo, palavra-chave ou empresa) *",
+      "placeholder": "Ex: Engenheiro de Software, React, AWS"
+    },
+    "exclusionKeywords": {
+      "label": "Excluir Palavras-chave (separadas por vírgula)",
+      "placeholder": "Ex: Consultoria, Outbound, Vendas"
+    },
+    "seniority": {
+      "label": "Senioridade Desejada"
+    },
+    "timePosted": {
+      "label": "Publicado há"
+    },
+    "location": {
+      "label": "Onde? (Cidade, estado ou 'remoto')",
+      "placeholder": "Ex: São Paulo, SP ou remoto"
+    },
+    "workModel": {
+      "label": "Modelo de Trabalho"
+    },
+    "generateButton": "Gerar Link Indeed",
+    "generatedUrlTitle": "URL do Indeed Gerada!"
+  },
+  "Filters": {
+    "seniority": {
+      "all": "Qualquer uma",
+      "internship": "Estágio",
+      "assistant": "Assistente",
+      "junior": "Júnior",
+      "mid": "Pleno",
+      "senior": "Sênior",
+      "director": "Diretor",
+      "executive": "Executivo"
+    },
+    "timePosted": {
+      "any": "Qualquer momento",
+      "hour": "Última hora",
+      "day": "Últimas 24 horas",
+      "3days": "Últimos 3 dias",
+      "week": "Última semana",
+      "2weeks": "Últimas 2 semanas",
+      "month": "Último mês"
+    },
+    "workModel": {
+      "all": "Todos",
+      "onsite": "Presencial",
+      "remote": "Remoto",
+      "hybrid": "Híbrido"
+    },
+    "searchMode": {
+      "precise": "Preciso (Recomendado)",
+      "powerful": "Poderoso (Experimental)"
+    }
+  },
+  "GeneratedUrl": {
+    "title": "URL Gerada para {platform}",
+    "copyButton": "Copiar Link",
+    "openButton": "Abrir no {platform}",
+    "copySuccess": {
+      "title": "Copiado!",
+      "description": "Link do {platform} copiado para a área de transferência."
+    },
+    "copyError": {
+      "title": "Erro ao copiar",
+      "description": "Não foi possível copiar o link."
+    }
+  },
+  "Footer": {
+    "home": "Início",
+    "howItWorks": "Como Funciona",
+    "faq": "FAQ",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "about": "Sobre"
+  },
+  "AboutPage": {
+    "backLink": "Voltar para a Home",
+    "title": "Sobre o Aras Finder",
+    "missionTitle": "A Nossa Missão",
+    "missionText1": "A busca por uma nova oportunidade de carreira pode ser um processo desgastante e repetitivo. Muitas vezes, as plataformas de emprego mostram vagas que não correspondem exatamente ao que procuramos, fazendo-nos perder tempo a filtrar manualmente os resultados.",
+    "missionText2": "nasceu da necessidade de simplificar e otimizar este processo. A nossa missão é dar aos profissionais as ferramentas para que encontrem as vagas certas de forma mais rápida e inteligente, utilizando o poder da tecnologia para criar buscas que as interfaces padrão nem sempre permitem.",
+    "creatorTitle": "O Criador",
+    "creatorText1": "Este projeto foi desenvolvido por",
+    "creatorText2": "um entusiasta de tecnologia apaixonado por criar soluções que resolvem problemas reais."
+  },
+  "HowItWorksPage": {
+    "backLink": "Voltar para a Home",
+    "title": "Como o Aras Finder Funciona",
+    "subtitle": "Aprenda a potenciar a sua busca de vagas e a encontrar exatamente o que procura com a nossa ferramenta de otimização.",
+    "buildSearchTitle": "Como Construímos a Sua Busca",
+    "buildSearchText1_part1": "O Aras Finder transforma as suas palavras-chave numa busca de alta precisão. Se você inserir",
+    "buildSearchText1_part2": "Engenheiro de Software, React",
+    "buildSearchText1_part3": "a ferramenta converte isso em",
+    "buildSearchText1_part4": "\"Engenheiro de Software\" AND \"React\"",
+    "buildSearchText1_part5": "para o LinkedIn, garantindo que ambos os termos estejam presentes nos resultados.",
+    "buildSearchText2": "O verdadeiro poder da ferramenta está na capacidade de excluir termos indesejados, limpando os resultados e poupando o seu tempo.",
+    "exclusionTitle": "Exclusão Manual e Automática",
+    "manualExclusionTitle": "Exclusão Manual de Palavras-chave",
+    "manualExclusionText_part1": "Com o campo \"Excluir Palavras-chave\", você tem controlo total. Se quiser vagas de \"React\" mas não de \"Angular\" ou \"Vue\", basta adicioná-las no campo de exclusão. A ferramenta irá adicionar",
+    "manualExclusionText_part2": "NOT \"Angular\" NOT \"Vue\"",
+    "manualExclusionText_part3": "(para o LinkedIn) ou",
+    "manualExclusionText_part4": "-\"Angular\" -\"Vue\" (para o Indeed) à sua busca.",
+    "autoExclusionTitle": "Exclusão Automática de Senioridade",
+    "autoExclusionText_part1": "Para aumentar a precisão, a ferramenta também realiza exclusões automáticas com base na senioridade que você seleciona. Se você escolher \"Pleno\" no LinkedIn (em Modo Poderoso) ou no Indeed, a ferramenta adicionará exclusões como",
+    "autoExclusionText_part2": "NOT \"Júnior\"",
+    "autoExclusionText_part3": "NOT \"Estágio\"",
+    "autoExclusionText_part4": "para refinar ainda mais os resultados.",
+    "modesTitle": "Modos de Busca e Otimizações",
+    "linkedinModesTitle": "LinkedIn: Modo Preciso vs. Modo Poderoso",
+    "linkedinModesText_part1": "O",
+    "linkedinModesText_part2": "Modo Preciso",
+    "linkedinModesText_part3": "usa apenas os filtros nativos da plataforma (como nível de experiência), enquanto o",
+    "linkedinModesText_part4": "Modo Poderoso (Experimental)",
+    "linkedinModesText_part5": "adiciona a exclusão automática de senioridade para uma filtragem dupla e mais rigorosa.",
+    "indeedOptimizationTitle": "Indeed: Otimização Direta",
+    "indeedOptimizationText_part1": "No Indeed, a ferramenta aplica sempre a exclusão de senioridade automática juntamente com as suas exclusões manuais, usando o operador",
+    "indeedOptimizationText_part2": "\"-\" para garantir resultados limpos e diretos."
+  },
+  "FaqPage": {
+    "backLink": "Voltar para a Home",
+    "title": "Perguntas Frequentes (FAQ)",
+    "q1": "O Aras Finder é gratuito?",
+    "a1": "Sim, a ferramenta é 100% gratuita. O projeto é mantido através do apoio da comunidade. Se a ferramenta lhe for útil, pode considerar fazer uma doação através do link \"Buy me a coffee\" no rodapé.",
+    "q2": "Porque devo usar o Aras Finder em vez de pesquisar diretamente no LinkedIn/Indeed?",
+    "a2": "O Aras Finder constrói URLs de busca muito mais precisas do que as que se conseguem criar manualmente. Ele usa operadores booleanos (como NOT e \"-\") para excluir termos indesejados, algo que a interface padrão das plataformas não oferece de forma simples. Isto resulta em menos \"ruído\" e mais vagas relevantes.",
+    "q3": "Os meus dados de pesquisa são guardados?",
+    "a3": "Não. O Aras Finder não armazena nenhuma informação sobre as suas pesquisas. Toda a lógica de construção da URL acontece no seu navegador. A sua privacidade é totalmente respeitada.",
+    "q4": "O que significa \"Modo Poderoso (Experimental)\"?",
+    "a4": "O Modo Poderoso adiciona exclusões automáticas à sua busca (ex: se procura \"Pleno\", ele exclui \"Júnior\" e \"Estágio\"). É \"experimental\" porque, embora seja muito eficaz, o algoritmo do LinkedIn pode por vezes interpretar estas buscas complexas de formas inesperadas. Recomendamos o Modo Preciso para a maioria dos casos.",
+    "q5": "Por que estou vendo anúncios no site?",
+    "a5": "O Aras Finder exibe anúncios para ajudar a cobrir os custos de manutenção e hospedagem da ferramenta, mantendo-a gratuita para todos os usuários. Os anúncios são fornecidos por uma rede de publicidade externa e não são de nossa autoria ou responsabilidade. Não temos controle sobre o conteúdo específico dos anúncios exibidos, nem somos responsáveis pelos sites ou produtos anunciados. Recomendamos sempre cautela ao clicar em qualquer anúncio online."
+  },
+  "ContactPage": {
+    "backLink": "Voltar para a Home",
+    "title": "Entre em Contato",
+    "subtitle": "Estamos aqui para ajudar e ouvir o seu feedback",
+    "cardTitle": "Como Podemos Ajudar?",
+    "introText": "O Aras Finder é uma ferramenta em constante evolução, e o seu feedback é essencial para a nossa melhoria contínua.",
+    "emailTitle": "Email de Contato",
+    "emailDescription": "Para questões, sugestões ou feedback sobre a ferramenta:",
+    "suggestionsTitle": "Sugestões",
+    "suggestionsText": "Ideias para novas funcionalidades ou melhorias",
+    "bugsTitle": "Reportar Bugs",
+    "bugsText": "Problemas técnicos ou comportamentos inesperados",
+    "questionsTitle": "Dúvidas",
+    "questionsText": "Questões sobre como usar a ferramenta",
+    "privacyTitle": "Privacidade",
+    "privacyText": "Questões sobre dados e cookies",
+    "responseTimeTitle": "Tempo de Resposta",
+    "responseText": "Comprometemo-nos a responder a todas as mensagens no prazo de 48 horas úteis. Para questões urgentes, pode também contactar-nos através do nosso repositório no GitHub.",
+    "footerText": "Obrigado por utilizar o Aras Finder e por nos ajudar a melhorar!"
+  },
+  "PrivacyPage": {
+    "backLink": "Voltar para a Home",
+    "title": "Política de Privacidade",
+    "lastUpdated": "Última atualização: 03/09/2025",
+    "section1Title": "1. Introdução",
+    "section1Text1": "é uma ferramenta de busca inteligente de vagas que respeita profundamente a sua privacidade. Esta política explica como recolhemos, utilizamos e protegemos as suas informações quando utiliza o nosso serviço.",
+    "section1Text2": "O nosso compromisso é fornecer uma experiência transparente e segura, garantindo que compreenda exatamente como os seus dados são tratados.",
+    "section2Title": "2. Recolha de Informações",
+    "section2Important": "Importante:",
+    "section2Text1": "O Aras Finder NÃO recolhe nem armazena diretamente os dados de pesquisa (cargos, palavras-chave, localizações, etc.) que insere na nossa ferramenta.",
+    "section2Text2": "Toda a lógica de construção das URLs de busca acontece exclusivamente no seu navegador. Os seus termos de pesquisa nunca são enviados para os nossos servidores, garantindo total confidencialidade das suas buscas de emprego.",
+    "section2ListTitle": "O que não recolhemos:",
+    "section2ListItem1": "Termos de pesquisa específicos",
+    "section2ListItem2": "Localizações geográficas inseridas",
+    "section2ListItem3": "Filtros de experiência ou tipo de contrato",
+    "section2ListItem4": "Histórico de buscas realizadas",
+    "section3Title": "3. Cookies e Tecnologias de Rastreamento",
+    "section3Subtitle1": "O que são cookies?",
+    "section3Text1": "Cookies são pequenos ficheiros de texto que são armazenados no seu dispositivo quando visita um website. Eles ajudam a melhorar a sua experiência online e fornecem informações úteis aos proprietários dos sites.",
+    "section3Subtitle2": "Cookies que utilizamos:",
+    "section3AnalyticsTitle": "Google Analytics (G-5J9T27K1SZ)",
+    "section3AnalyticsText": "Utilizamos o Google Analytics para analisar o tráfego do nosso site e compreender como os utilizadores interagem com a nossa ferramenta. Esta informação ajuda-nos a melhorar continuamente o serviço.",
+    "section4Title": "4. Como Gerir os Cookies",
+    "section4Text1": "Pode controlar e gerir os cookies através das configurações do seu navegador. Aqui estão as instruções para os navegadores mais populares:",
+    "section4Chrome": "Configurações → Privacidade e Segurança → Cookies e outros dados do site",
+    "section4Firefox": "Opções → Privacidade e Segurança → Cookies e dados do site",
+    "section4Safari": "Preferências → Privacidade → Cookies e dados do website",
+    "section4Edge": "Configurações → Cookies e permissões do site",
+    "section4NoteTitle": "Nota:",
+    "section4NoteText": "Desativar cookies pode afetar a funcionalidade de alguns serviços, incluindo a personalização de anúncios.",
+    "section5Title": "5. Links para Terceiros",
+    "section5Text1": "O Aras Finder gera links para plataformas de terceiros, nomeadamente:",
+    "linkedinPolicy": "Política de Privacidade do LinkedIn",
+    "indeedPolicy": "Política de Privacidade do Indeed",
+    "section5Text2": "Quando clica nestes links, está a sair do nosso site e a entrar em plataformas com as suas próprias políticas de privacidade. Recomendamos que leia as políticas destes serviços antes de os utilizar.",
+    "section6Title": "6. Alterações à Política",
+    "section6Text1": "Esta política de privacidade pode ser atualizada periodicamente para refletir mudanças na nossa prática de privacidade ou para cumprir novos requisitos legais.",
+    "section6Text2": "Quando fizermos alterações significativas, atualizaremos a data de \"Última atualização\" no topo desta página e, se necessário, notificaremos os utilizadores através do nosso site.",
+    "section6Text3": "Recomendamos que reveja esta política regularmente para se manter informado sobre como protegemos a sua privacidade.",
+    "section7Title": "7. Contacto",
+    "section7Text1": "Se tiver dúvidas sobre esta política de privacidade ou sobre como tratamos os seus dados, não hesite em contactar-nos:",
+    "section7Text2": "Responderemos às suas questões no prazo de 48 horas úteis.",
+    "footerText": "Obrigado por confiar no Aras Finder. A sua privacidade é importante para nós."
+  },
+  "ToastMessages": {
+    "requiredField": {
+      "title": "Campo obrigatório",
+      "description": "Por favor, insira pelo menos uma palavra-chave para busca."
+    },
+    "indeedLinkGenerated": {
+      "title": "Link Indeed gerado!",
+      "description": "Sua URL de busca otimizada foi criada."
+    },
+    "linkedInLinkGenerated": {
+      "title": "Link LinkedIn gerado!",
+      "description": "Sua URL de busca limpa foi criada usando apenas filtros nativos."
+    }
+  },
+  "Metadata": {
+    "title": "Aras Finder - Buscador Inteligente de Vagas",
+    "description": "O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos e filtros avançados."
+  }
+}

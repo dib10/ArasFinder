@@ -1,3 +1,4 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -8,11 +9,12 @@ import { Search } from "lucide-react"
 import { useLinkedInSearch } from "@/hooks/useLinkedInSearch"
 import { GeneratedUrlCard } from "./GeneratedUrlCard"
 import {Switch} from "@/components/ui/switch"
+import { useTranslations } from 'next-intl'
 import { 
-  seniorityOptions, 
-  linkedinTimePostedOptions, 
-  workModelOptions, 
-  searchModeOptions 
+  getSeniorityOptions, 
+  getLinkedinTimePostedOptions, 
+  getWorkModelOptions, 
+  getSearchModeOptions 
 } from "@/config/filters"
 
 interface LinkedInSearchFormProps {
@@ -23,6 +25,10 @@ interface LinkedInSearchFormProps {
 }
 
 export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, setExclusionKeywords }: LinkedInSearchFormProps) {
+  const t = useTranslations('LinkedInForm')
+  const tFilters = useTranslations('Filters')
+  const tGeneratedUrl = useTranslations('GeneratedUrl')
+  
   const {
     linkedinSeniority,
     linkedinTimePosted,
@@ -40,27 +46,37 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
     setLinkedinEasyApply,
   } = useLinkedInSearch()
 
+  const seniorityOptions = React.useMemo(() => getSeniorityOptions(tFilters), [tFilters])
+  const linkedinTimePostedOptions = React.useMemo(() => getLinkedinTimePostedOptions(tFilters), [tFilters])
+  const workModelOptions = React.useMemo(() => getWorkModelOptions(tFilters), [tFilters])
+  const searchModeOptions = React.useMemo(() => getSearchModeOptions(tFilters), [tFilters])
+  
+  const generatedUrlTitle = React.useMemo(() => 
+    tGeneratedUrl('title', { platform: 'LinkedIn' }), 
+    [tGeneratedUrl]
+  )
+
   return (
     <>
       <Card className="mb-6">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Search className="h-5 w-5" />
-            Aras Finder - LinkedIn
+            {t('title')}
           </CardTitle>
           <CardDescription>
-            Configure sua busca no LinkedIn com operadores booleanos avançados.
+            {t('description')}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="linkedin-keywords" className="text-sm font-medium">
-              Cargo, Palavra-chave ou Tecnologia *
+              {t('keywords.label')}
             </Label>
             <Input
               id="linkedin-keywords"
               type="text"
-              placeholder="Ex: Engenheiro de Software, Python, AWS"
+              placeholder={t('keywords.placeholder')}
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />
@@ -68,19 +84,19 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
 
           <div className="space-y-2">
             <Label htmlFor="linkedin-exclusion-keywords" className="text-sm font-medium">
-              Excluir Palavras-chave (separadas por vírgula)
+              {t('exclusionKeywords.label')}
             </Label>
             <Input
               id="linkedin-exclusion-keywords"
               type="text"
-              placeholder="Ex: Angular, PHP, Cobol"
+              placeholder={t('exclusionKeywords.placeholder')}
               value={exclusionKeywords}
               onChange={(e) => setExclusionKeywords(e.target.value)}
             />
           </div>
 
           <div className="space-y-3">
-            <Label className="text-sm font-medium">Senioridade Desejada</Label>
+            <Label className="text-sm font-medium">{t('seniority.label')}</Label>
             <RadioGroup
               value={linkedinSeniority}
               onValueChange={setLinkedinSeniority}
@@ -99,7 +115,7 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
 
           <div className="grid md:grid-cols-3 gap-4">
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Publicado há</Label>
+              <Label className="text-sm font-medium">{t('timePosted.label')}</Label>
               <Select value={linkedinTimePosted} onValueChange={setLinkedinTimePosted}>
                 <SelectTrigger>
                   <SelectValue />
@@ -116,19 +132,19 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
 
             <div className="space-y-2">
               <Label htmlFor="linkedin-location" className="text-sm font-medium">
-                Localidade
+                {t('location.label')}
               </Label>
               <Input
                 id="linkedin-location"
                 type="text"
-                placeholder="Ex: São Paulo, Brasil"
+                placeholder={t('location.placeholder')}
                 value={linkedinLocation}
                 onChange={(e) => setLinkedinLocation(e.target.value)}
               />
             </div>
 
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Modo de Busca</Label>
+              <Label className="text-sm font-medium">{t('searchMode.label')}</Label>
               <RadioGroup
                 value={linkedinSearchMode}
                 onValueChange={setLinkedinSearchMode}
@@ -145,14 +161,14 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
               </RadioGroup>
             </div>
 
-            {linkedinSearchMode === "poderoso" && (
+            {linkedinSearchMode === "powerful" && (
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <div className="flex items-start gap-2">
                   <span className="text-yellow-600 text-lg">⚠️</span>
                   <div className="text-sm text-yellow-800">
-                    <p className="font-medium mb-1">Aviso:</p>
+                    <p className="font-medium mb-1">{t('warning.title')}</p>
                     <p>
-                      O modo Poderoso está em testes. A busca será filtrada corretamente pelos operadores NOT, tornando-a mais rigorosa.
+                      {t('warning.message')}
                     </p>
                   </div>
                 </div>
@@ -160,7 +176,7 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
             )}
 
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Modelo de Trabalho</Label>
+              <Label className="text-sm font-medium">{t('workModel.label')}</Label>
               <Select value={linkedinWorkModel} onValueChange={setLinkedinWorkModel}>
                 <SelectTrigger>
                   <SelectValue />
@@ -184,12 +200,10 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
                         onCheckedChange={setLinkedinEasyApply}
                     />
                     <Label htmlFor="linkedin-easy-apply" className="cursor-pointer">
-                        Apenas "Candidatura Simplificada"
+                        {t('easyApply.label')}
                     </Label>
                 </div>
             </div>
-
-          
 
           <Button
             onClick={() => generateLinkedInUrl(keywords, exclusionKeywords)}
@@ -197,7 +211,7 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
             size="lg"
           >
             <Search className="mr-2 h-5 w-5" />
-            Gerar Link LinkedIn
+            {t('generateButton')}
           </Button>
         </CardContent>
       </Card>
@@ -206,7 +220,7 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
         <GeneratedUrlCard
           url={linkedinGeneratedUrl}
           platform="LinkedIn"
-          title="URL LinkedIn Gerada!"
+          title={generatedUrlTitle}
         />
       )}
     </>

@@ -7,23 +7,26 @@ import { LinkedInSearchForm } from "@/components/domain/LinkedInSearchForm"
 import { IndeedSearchForm } from "@/components/domain/IndeedSearchForm"
 import { ThemeToggle } from "@/components/ui/ThemeToggle"
 import { useState } from "react"
+import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher"
 
 export default function JobSearchOptimizer() {
   const [keywords, setKeywords] = useState("")
   const [exclusionKeywords, setExclusionKeywords] = useState("")
+  const t = useTranslations('HomePage')
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8 relative">
-
-          <div className="absolute top-0 right-0">
+          <div className="absolute top-0 left-0 flex gap-2">
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
           
           <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aras Finder</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-            O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos
-            e filtros avançados.
+            {t('description')}
           </p>
           <div className="flex justify-center mb-6">
             <img
@@ -69,25 +72,23 @@ export default function JobSearchOptimizer() {
         {/* Informações sobre as diferenças */}
         <Card className="mt-6 bg-blue-50 border-blue-200">
           <CardHeader>
-            <CardTitle className="text-blue-800 text-lg">Como o Aras Finder Otimiza Suas Buscas</CardTitle>
+            <CardTitle className="text-blue-800 text-lg">{t('howItWorks.title')}</CardTitle>
           </CardHeader>
           <CardContent className="text-blue-700 space-y-3">
             <div>
               <p className="text-sm font-semibold">LinkedIn:</p>
-              <p className="text-sm">• Modo Preciso: Usa apenas filtros nativos (f_E, f_TPR, f_WT)</p>
-              <p className="text-sm">• Modo Poderoso: Combina filtros nativos + operadores NOT - Em testes, pode apresentar inconsistências</p>
-              <p className="text-sm">• Keywords limpas ou com exclusões conforme o modo</p>
+              <p className="text-sm">{t('howItWorks.linkedin.precise')}</p>
+              <p className="text-sm">{t('howItWorks.linkedin.powerful')}</p>
+              <p className="text-sm">{t('howItWorks.linkedin.keywords')}</p>
             </div>
             <div>
               <p className="text-sm font-semibold">Indeed:</p>
-              <p className="text-sm">• Usa operador "-" para exclusões (ex: -Pleno -Senior)</p>
-              <p className="text-sm">• Trabalho remoto via palavra-chave + parâmetro especial (sc)</p>
-              <p className="text-sm">• Filtro de data via parâmetro "fromage" (1, 3, 7, 14 dias)</p>
+              <p className="text-sm">{t('howItWorks.indeed.exclusions')}</p>
+              <p className="text-sm">{t('howItWorks.indeed.remote')}</p>
+              <p className="text-sm">{t('howItWorks.indeed.dateFilter')}</p>
             </div>
           </CardContent>
         </Card>
-
-        
       </div>
     </div>
   )

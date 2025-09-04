@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { buildLinkedInOptimizedKeywords, sanitizeUserInput } from "@/lib/search-builder"
 import { linkedinSeniorityMap, linkedinWorkModelMap } from "@/config/filters"
+import { useLocale, useTranslations } from "next-intl"
 
 export function useLinkedInSearch() {
   const [linkedinSeniority, setLinkedinSeniority] = useState("any")
@@ -13,12 +14,14 @@ export function useLinkedInSearch() {
   const [linkedinEasyApply, setLinkedinEasyApply] = useState(false)
 
   const { toast } = useToast()
+  const locale = useLocale()
+  const t = useTranslations('ToastMessages');
 
   const generateLinkedInUrl = (keywords: string, exclusionKeywords: string) => {
     if (!keywords.trim()) {
       toast({
-        title: "Campo obrigatório",
-        description: "Por favor, insira pelo menos uma palavra-chave para busca.",
+        title: t('requiredField.title'),
+        description: t('requiredField.description'),
         variant: "destructive",
       })
       return
@@ -32,7 +35,8 @@ export function useLinkedInSearch() {
       keywords,
       linkedinSeniority,
       linkedinSearchMode,
-      exclusionKeywords
+      exclusionKeywords,
+      locale
     )
     params.append("keywords", optimizedKeywords)
 
@@ -71,8 +75,8 @@ export function useLinkedInSearch() {
     setLinkedinGeneratedUrl(finalUrl)
 
     toast({
-      title: "Link LinkedIn gerado!",
-      description: "Sua URL de busca limpa foi criada usando apenas filtros nativos.",
+      title: t('linkedInLinkGenerated.title'),
+      description: t('linkedInLinkGenerated.description'),
     })
   }
 
@@ -97,4 +101,4 @@ export function useLinkedInSearch() {
     // Funções
     generateLinkedInUrl,
   }
-} 
+}

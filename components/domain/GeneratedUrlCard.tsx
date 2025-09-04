@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { Copy, ExternalLink } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { useTranslations } from 'next-intl'
 
 interface GeneratedUrlCardProps {
   url: string
@@ -12,18 +13,19 @@ interface GeneratedUrlCardProps {
 
 export function GeneratedUrlCard({ url, platform, title }: GeneratedUrlCardProps) {
   const { toast } = useToast()
+  const t = useTranslations('GeneratedUrl')
 
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(url)
       toast({
-        title: "Copiado!",
-        description: `Link do ${platform} copiado para a área de transferência.`,
+        title: t('copySuccess.title'),
+        description: t('copySuccess.description', { platform }),
       })
     } catch (err) {
       toast({
-        title: "Erro ao copiar",
-        description: "Não foi possível copiar o link.",
+        title: t('copyError.title'),
+        description: t('copyError.description'),
         variant: "destructive",
       })
     }
@@ -45,11 +47,11 @@ export function GeneratedUrlCard({ url, platform, title }: GeneratedUrlCardProps
         <div className="flex gap-3">
           <Button onClick={openInBrowser} className={`flex-1 ${buttonColor}`}>
             <ExternalLink className="mr-2 h-4 w-4" />
-            Abrir no {platform}
+            {t('openButton', { platform })}
           </Button>
           <Button onClick={copyToClipboard} variant="outline" className="flex-1">
             <Copy className="mr-2 h-4 w-4" />
-            Copiar Link
+            {t('copyButton')}
           </Button>
         </div>
       </CardContent>

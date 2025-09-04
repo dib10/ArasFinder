@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { buildIndeedOptimizedKeywords, sanitizeUserInput } from "@/lib/search-builder"
+import { useLocale, useTranslations } from "next-intl"
 
 export function useIndeedSearch() {
   const [indeedSeniority, setIndeedSeniority] = useState("any")
@@ -10,33 +11,39 @@ export function useIndeedSearch() {
   const [indeedGeneratedUrl, setIndeedGeneratedUrl] = useState("")
 
   const { toast } = useToast()
+  const t = useTranslations('ToastMessages');
+  const locale = useLocale();
 
   const generateIndeedUrl = (keywords: string, exclusionKeywords: string) => {
     if (!keywords.trim()) {
       toast({
-        title: "Campo obrigatório",
-        description: "Por favor, insira pelo menos uma palavra-chave para busca.",
+        title: t('requiredField.title'),
+        description: t('requiredField.description'),
         variant: "destructive",
       })
       return
     }
 
-    const baseUrl = "https://br.indeed.com/jobs"
+    // CORREÇÃO: A baseUrl agora é dinâmica baseada no locale
+    const baseUrl = locale === 'en' ? "https://www.indeed.com/jobs" : "https://br.indeed.com/jobs";
+    
     const params = new URLSearchParams()
 
-    // Construir query otimizada, incluindo exclusões manuais
+    // Construir query otimizada, incluindo exclusões manuais e passando o locale
     const optimizedKeywords = buildIndeedOptimizedKeywords(
       keywords,
       indeedSeniority,
       indeedWorkModel,
-      exclusionKeywords
+      exclusionKeywords,
+      locale
     )
     params.append("q", optimizedKeywords)
 
-    // Localização (sem codificação para Indeed também)
+    // Localização
     let locationValue = indeedLocation.trim()
     if (indeedWorkModel === "remoto" && !locationValue) {
-      locationValue = "remoto"
+      const remoteKeyword = locale === 'en' ? 'remote' : 'remoto';
+      locationValue = remoteKeyword;
     }
     if (locationValue) {
       params.append("l", sanitizeUserInput(locationValue))
@@ -56,8 +63,8 @@ export function useIndeedSearch() {
     setIndeedGeneratedUrl(finalUrl)
 
     toast({
-      title: "Link Indeed gerado!",
-      description: "Sua URL de busca otimizada foi criada.",
+      title: t('indeedLinkGenerated.title'),
+      description: t('indeedLinkGenerated.description'),
     })
   }
 
@@ -78,4 +85,4 @@ export function useIndeedSearch() {
     // Funções
     generateIndeedUrl,
   }
-} 
+}

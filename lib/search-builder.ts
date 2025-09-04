@@ -1,4 +1,4 @@
-import { linkedinExclusions, indeedExclusions } from "@/config/filters"
+import { exclusionsByLocale } from "@/config/filters"
 
 function processAndQuoteKeywords(keywords: string): string {
   if (!keywords.trim()) return ""
@@ -23,7 +23,8 @@ export function buildLinkedInOptimizedKeywords(
   baseKeywords: string,
   selectedSeniority: string,
   searchMode: string,
-  exclusionKeywords?: string
+  exclusionKeywords?: string,
+  locale: string = "pt-BR"
 ): string {
   if (!baseKeywords.trim()) return ""
 
@@ -47,10 +48,11 @@ export function buildLinkedInOptimizedKeywords(
 
   // Se modo "Poderoso", adiciona operadores NOT para dupla filtragem
   if (searchMode === "poderoso" && selectedSeniority !== "any") {
-    const exclusions = linkedinExclusions[selectedSeniority as keyof typeof linkedinExclusions]
+    const localeKey = locale === "en" ? "en" : "pt-BR"
+    const exclusions = exclusionsByLocale[localeKey]?.linkedin?.[selectedSeniority as keyof typeof exclusionsByLocale[typeof localeKey]["linkedin"]]
     
     if (exclusions) {
-      const excludeTerms = exclusions.map((term) => `NOT "${term}"`).join(" ")
+      const excludeTerms = exclusions.map((term: string) => `NOT "${term}"`).join(" ")
       optimizedKeywords = `${optimizedKeywords} ${excludeTerms}`
     }
   }
@@ -59,18 +61,19 @@ export function buildLinkedInOptimizedKeywords(
 }
 
 /**
- * Constrói keywords otimizadas para Indeed usando operador de exclusão
+ * Constrói keywords otimizadas para Indeed usando operador de exclusão "-"
  */
 export function buildIndeedOptimizedKeywords(
   baseKeywords: string,
   selectedSeniority: string,
   workModel: string,
-  exclusionKeywords?: string
+  exclusionKeywords?: string,
+  locale: string = "pt-BR"
 ): string {
-  if (!baseKeywords.trim()) return ""
+  if (!baseKeywords.trim()) return "";
 
-  // Processa com aspas e troca AND por espaço (Indeed)
-  let optimizedKeywords = processAndQuoteKeywords(baseKeywords).replace(/\s+AND\s+/g, ' ')
+  // Processa com aspas e troca AND por espaço, que é o padrão do Indeed
+  let optimizedKeywords = processAndQuoteKeywords(baseKeywords).replace(/\s+AND\s+/g, ' ');
 
   // Exclusões manuais via -"termo"
   if (exclusionKeywords && exclusionKeywords.trim()) {
@@ -78,28 +81,31 @@ export function buildIndeedOptimizedKeywords(
       .split(',')
       .map((term) => term.trim())
       .filter((term) => term.length > 0)
-      .map((term) => `-"${term}"`)
-      .join(' ')
-    optimizedKeywords = `${optimizedKeywords} ${manualExclusions}`
+      .map((term) => `-"${term}"`) 
+      .join(' ');
+    optimizedKeywords = `${optimizedKeywords} ${manualExclusions}`;
   }
 
-  // Lógica de exclusão para Indeed usando operador -
+  // Lógica de exclusão automática para Indeed usando operador "-"
   if (selectedSeniority !== "any") {
-    const exclusions = indeedExclusions[selectedSeniority as keyof typeof indeedExclusions]
+    const localeKey = locale === "en" ? "en" : "pt-BR";
+    const exclusions = exclusionsByLocale[localeKey]?.indeed?.[selectedSeniority as keyof typeof exclusionsByLocale[typeof localeKey]["indeed"]];
     
     if (exclusions) {
-      const excludeTerms = exclusions.map((term) => `-"${term}"`).join(" ")
-      optimizedKeywords = `${optimizedKeywords} ${excludeTerms}`
+      const excludeTerms = exclusions.map((term: string) => `-"${term}"`).join(" "); // <-- CORRIGIDO para usar hífen
+      optimizedKeywords = `${optimizedKeywords} ${excludeTerms}`;
     }
   }
 
-  // Adicionar palavra-chave remoto se selecionado
+  // Adicionar palavra-chave "remoto" se selecionado
   if (workModel === "remoto") {
-    optimizedKeywords = `${optimizedKeywords} "remoto"`
+    const remoteKeyword = locale === "en" ? "remote" : "remoto";
+    optimizedKeywords = `${optimizedKeywords} "${remoteKeyword}"`;
   }
 
-  return optimizedKeywords
+  return optimizedKeywords;
 }
+
 
 /**
  * Sanitiza entrada do usuário para uso seguro em URLs
@@ -115,4 +121,4 @@ export function sanitizeUserInput(input: string): string {
  */
 export function sanitizeAndEncodeUserInput(input: string): string {
   return encodeURIComponent(input.trim())
-} 
+}

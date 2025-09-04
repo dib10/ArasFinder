@@ -7,10 +7,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Briefcase } from "lucide-react"
 import { useIndeedSearch } from "@/hooks/useIndeedSearch"
 import { GeneratedUrlCard } from "./GeneratedUrlCard"
+import { useTranslations } from 'next-intl'
 import { 
-  seniorityOptions, 
-  indeedTimePostedOptions, 
-  workModelOptions 
+  getSeniorityOptions, 
+  getIndeedTimePostedOptions, 
+  getWorkModelOptions 
 } from "@/config/filters"
 
 interface IndeedSearchFormProps {
@@ -21,6 +22,8 @@ interface IndeedSearchFormProps {
 }
 
 export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, setExclusionKeywords }: IndeedSearchFormProps) {
+  const t = useTranslations('IndeedForm')
+  const tFilters = useTranslations('Filters')
   const {
     indeedSeniority,
     indeedTimePosted,
@@ -34,27 +37,31 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
     generateIndeedUrl,
   } = useIndeedSearch()
 
+  const seniorityOptions = getSeniorityOptions(tFilters)
+  const indeedTimePostedOptions = getIndeedTimePostedOptions(tFilters)
+  const workModelOptions = getWorkModelOptions(tFilters)
+
   return (
     <>
       <Card className="mb-6">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Briefcase className="h-5 w-5" />
-            Aras Finder - Indeed
+            {t('title')}
           </CardTitle>
           <CardDescription>
-            Configure sua busca no Indeed com operadores de exclusão específicos.
+            {t('description')}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="indeed-keywords" className="text-sm font-medium">
-              O quê? (Cargo, palavra-chave ou empresa) *
+              {t('keywords.label')}
             </Label>
             <Input
               id="indeed-keywords"
               type="text"
-              placeholder="Ex: Engenheiro de Software, React, AWS"
+              placeholder={t('keywords.placeholder')}
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />
@@ -62,19 +69,19 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
 
           <div className="space-y-2">
             <Label htmlFor="indeed-exclusion-keywords" className="text-sm font-medium">
-              Excluir Palavras-chave (separadas por vírgula)
+              {t('exclusionKeywords.label')}
             </Label>
             <Input
               id="indeed-exclusion-keywords"
               type="text"
-              placeholder="Ex: Consultoria, Outbound, Vendas"
+              placeholder={t('exclusionKeywords.placeholder')}
               value={exclusionKeywords}
               onChange={(e) => setExclusionKeywords(e.target.value)}
             />
           </div>
 
           <div className="space-y-3">
-            <Label className="text-sm font-medium">Senioridade Desejada</Label>
+            <Label className="text-sm font-medium">{t('seniority.label')}</Label>
             <RadioGroup
               value={indeedSeniority}
               onValueChange={setIndeedSeniority}
@@ -93,7 +100,7 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
 
           <div className="grid md:grid-cols-3 gap-4">
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Publicado há</Label>
+              <Label className="text-sm font-medium">{t('timePosted.label')}</Label>
               <Select value={indeedTimePosted} onValueChange={setIndeedTimePosted}>
                 <SelectTrigger>
                   <SelectValue />
@@ -110,19 +117,19 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
 
             <div className="space-y-2">
               <Label htmlFor="indeed-location" className="text-sm font-medium">
-                Onde? (Cidade, estado ou 'remoto')
+                {t('location.label')}
               </Label>
               <Input
                 id="indeed-location"
                 type="text"
-                placeholder="Ex: São Paulo, SP ou remoto"
+                placeholder={t('location.placeholder')}
                 value={indeedLocation}
                 onChange={(e) => setIndeedLocation(e.target.value)}
               />
             </div>
 
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Modelo de Trabalho</Label>
+              <Label className="text-sm font-medium">{t('workModel.label')}</Label>
               <Select value={indeedWorkModel} onValueChange={setIndeedWorkModel}>
                 <SelectTrigger>
                   <SelectValue />
@@ -144,7 +151,7 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
             size="lg"
           >
             <Briefcase className="mr-2 h-5 w-5" />
-            Gerar Link Indeed
+            {t('generateButton')}
           </Button>
         </CardContent>
       </Card>
@@ -153,7 +160,7 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
         <GeneratedUrlCard
           url={indeedGeneratedUrl}
           platform="Indeed"
-          title="URL Indeed Gerada!"
+          title={t('generatedUrlTitle')}
         />
       )}
     </>
