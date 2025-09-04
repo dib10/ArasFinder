@@ -128,7 +128,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "privacy": "Privacy",
-    "about": "About"
+    "about": "About",
+    "buyCoffee": "Buy me a coffee"
   },
   "AboutPage": {
     "backLink": "Back to Home",
@@ -268,5 +269,10 @@
   "Metadata": {
     "title": "Aras Finder - Smart Job Search",
     "description": "The intelligent job finder that builds precise URLs on LinkedIn and Indeed using boolean operators and advanced filters."
+  }
+  ,
+  "SupportBanner": {
+    "text": "If Aras Finder helps you find jobs faster, consider supporting the project.",
+    "cta": "Buy me a coffee"
   }
 }

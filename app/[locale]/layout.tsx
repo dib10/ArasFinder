@@ -5,6 +5,7 @@ import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { Footer } from "@/components/domain/Footer"
+import { SupportBanner } from "@/components/domain/SupportBanner"
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
@@ -69,6 +70,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <main>{children}</main>
+            <SupportBanner />
             <Footer />
             <Toaster />
           </NextIntlClientProvider>

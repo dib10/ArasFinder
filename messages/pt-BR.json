@@ -128,7 +128,8 @@
     "faq": "FAQ",
     "contact": "Contato",
     "privacy": "Privacidade",
-    "about": "Sobre"
+    "about": "Sobre",
+    "buyCoffee": "Apoie"
   },
   "AboutPage": {
     "backLink": "Voltar para a Home",
@@ -268,5 +269,10 @@
   "Metadata": {
     "title": "Aras Finder - Buscador Inteligente de Vagas",
     "description": "O buscador inteligente de vagas que constrói URLs precisas no LinkedIn e Indeed usando operadores booleanos e filtros avançados."
+  }
+  ,
+  "SupportBanner": {
+    "text": "Se o Aras Finder te ajuda a encontrar vagas mais rápido, considere apoiar o projeto.",
+    "cta": "Buy me a coffee"
   }
 }

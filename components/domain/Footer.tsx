@@ -17,6 +17,14 @@ export function Footer() {
         <Link href={`/${locale}/sobre`} className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">{t('about')}</Link>
         <Link href={`/${locale}/privacy`} className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">{t('privacy')}</Link>
         <Link href={`/${locale}/contact`} className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">{t('contact')}</Link>
+        <a
+          href="https://buymeacoffee.com/dib10"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+        >
+          {t('buyCoffee')}
+        </a>
       </nav>
     </footer>
   )
