@@ -30,7 +30,6 @@ export function useLinkedInSearch() {
     const baseUrl = "https://www.linkedin.com/jobs/search/"
     const params = new URLSearchParams()
 
-    // Construir keywords otimizadas, incluindo exclusões manuais
     const optimizedKeywords = buildLinkedInOptimizedKeywords(
       keywords,
       linkedinSeniority,
@@ -40,17 +39,22 @@ export function useLinkedInSearch() {
     )
     params.append("keywords", optimizedKeywords)
 
-    // Adicionar localização se especificada (sem codificação para LinkedIn)
-    if (linkedinLocation.trim()) {
-      params.append("location", sanitizeUserInput(linkedinLocation))
+    // Adiciona padrão para EN e PT-BR
+    let finalLocation = linkedinLocation.trim();
+    if (locale === 'pt-BR' && !finalLocation) {
+      finalLocation = "Brazil"; 
+    } else if (locale === 'en' && !finalLocation) {
+      finalLocation = "United States"; // Padrão para a interface em inglês
     }
 
-    // Adicionar filtro de tempo se especificado
+    if (finalLocation) {
+      params.append("location", sanitizeUserInput(finalLocation))
+    }
+
     if (linkedinTimePosted !== "any") {
       params.append("f_TPR", linkedinTimePosted)
     }
 
-    // Adicionar modelo de trabalho se especificado
     if (linkedinWorkModel !== "any") {
       const workModelValue = linkedinWorkModelMap[linkedinWorkModel as keyof typeof linkedinWorkModelMap]
       if (workModelValue) {
@@ -58,19 +62,17 @@ export function useLinkedInSearch() {
       }
     }
 
-    // Adicionar filtro de senioridade se especificado
     if (linkedinSeniority !== "any") {
       const seniorityValue = linkedinSeniorityMap[linkedinSeniority as keyof typeof linkedinSeniorityMap]
       if (seniorityValue) {
         params.append("f_E", seniorityValue)
       }
     }
-
-    // Easy Apply 
+    
     if(linkedinEasyApply){
-    params.append("f_AL", "true")    }
+      params.append("f_AL", "true")
+    }
 
-    // Gerar URL final
     const finalUrl = `${baseUrl}?${params.toString()}`
     setLinkedinGeneratedUrl(finalUrl)
 
@@ -81,7 +83,6 @@ export function useLinkedInSearch() {
   }
 
   return {
-    // Estados
     linkedinSeniority,
     linkedinTimePosted,
     linkedinLocation,
@@ -89,16 +90,12 @@ export function useLinkedInSearch() {
     linkedinGeneratedUrl,
     linkedinSearchMode,
     linkedinEasyApply,
-    
-    // Setters
     setLinkedinSeniority,
     setLinkedinTimePosted,
     setLinkedinLocation,
     setLinkedinWorkModel,
     setLinkedinSearchMode,
     setLinkedinEasyApply,
-    
-    // Funções
     generateLinkedInUrl,
   }
 }

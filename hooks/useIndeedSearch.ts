@@ -24,12 +24,10 @@ export function useIndeedSearch() {
       return
     }
 
-    // CORREÇÃO: A baseUrl agora é dinâmica baseada no locale
     const baseUrl = locale === 'en' ? "https://www.indeed.com/jobs" : "https://br.indeed.com/jobs";
     
     const params = new URLSearchParams()
 
-    // Construir query otimizada, incluindo exclusões manuais e passando o locale
     const optimizedKeywords = buildIndeedOptimizedKeywords(
       keywords,
       indeedSeniority,
@@ -39,22 +37,25 @@ export function useIndeedSearch() {
     )
     params.append("q", optimizedKeywords)
 
-    // Localização
-    let locationValue = indeedLocation.trim()
-    if (indeedWorkModel === "remoto" && !locationValue) {
-      const remoteKeyword = locale === 'en' ? 'remote' : 'remoto';
-      locationValue = remoteKeyword;
-    }
-    if (locationValue) {
-      params.append("l", sanitizeUserInput(locationValue))
+    // LÓGICA MODIFICADA: Força a localização para "Brasil" se o locale for pt-BR e o campo estiver vazio
+    let finalLocation = indeedLocation.trim();
+    if (locale === 'pt-BR' && !finalLocation) {
+      finalLocation = "Brasil";
     }
 
-    // Filtro de data
+    if (indeedWorkModel === "remoto" && !finalLocation) {
+      const remoteKeyword = locale === 'en' ? 'remote' : 'remoto';
+      finalLocation = remoteKeyword;
+    }
+    
+    if (finalLocation) {
+      params.append("l", sanitizeUserInput(finalLocation))
+    }
+
     if (indeedTimePosted !== "any") {
       params.append("fromage", indeedTimePosted)
     }
 
-    // Parâmetro especial para vagas remotas
     if (indeedWorkModel === "remoto") {
       params.append("sc", "0kf%3Aattr(DSGMC)%3B")
     }
@@ -69,20 +70,15 @@ export function useIndeedSearch() {
   }
 
   return {
-    // Estados
     indeedSeniority,
     indeedTimePosted,
     indeedLocation,
     indeedWorkModel,
     indeedGeneratedUrl,
-    
-    // Setters
     setIndeedSeniority,
     setIndeedTimePosted,
     setIndeedLocation,
     setIndeedWorkModel,
-    
-    // Funções
     generateIndeedUrl,
   }
 }
