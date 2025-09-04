@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aras-finder.vercel.app/sitemap.xml
