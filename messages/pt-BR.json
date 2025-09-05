@@ -45,7 +45,7 @@
     "easyApply": {
       "label": "Apenas \"Candidatura Simplificada\""
     },
-    "generateButton": "Gerar Link LinkedIn",
+    "generateButton": "Pegar Meu Link Otimizado",
     "warning": {
       "title": "Aviso:",
       "message": "O modo Poderoso está em testes. A busca será filtrada corretamente pelos operadores NOT, tornando-a mais rigorosa."
@@ -75,7 +75,7 @@
     "workModel": {
       "label": "Modelo de Trabalho"
     },
-    "generateButton": "Gerar Link Indeed",
+    "generateButton": "Pegar Meu Link Otimizado",
     "generatedUrlTitle": "URL do Indeed Gerada!"
   },
   "Filters": {

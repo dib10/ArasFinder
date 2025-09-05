@@ -45,7 +45,7 @@
     "easyApply": {
       "label": "Easy Apply Only"
     },
-    "generateButton": "Generate LinkedIn Link",
+    "generateButton": "Get My Optimized Link",
     "warning": {
       "title": "Warning:",
       "message": "Powerful mode is in testing. The search will be correctly filtered by NOT operators, making it more rigorous."
@@ -75,7 +75,7 @@
     "workModel": {
       "label": "Work Model"
     },
-    "generateButton": "Generate Indeed Link",
+    "generateButton": "Get My Optimized Link",
     "generatedUrlTitle": "Indeed URL Generated!"
   },
   "Filters": {
