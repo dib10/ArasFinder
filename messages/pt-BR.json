@@ -91,6 +91,8 @@
     },
     "timePosted": {
       "any": "Qualquer momento",
+      "quarterHour": "Últimos 15 minutos",
+      "halfHour": "Últimos 30 minutos",
       "hour": "Última hora",
       "day": "Últimas 24 horas",
       "3days": "Últimos 3 dias",

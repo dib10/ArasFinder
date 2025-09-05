@@ -12,6 +12,8 @@ export const getSeniorityOptions = (t: any) => [
 
 export const getLinkedinTimePostedOptions = (t: any) => [
   { value: "any", label: t('timePosted.any') },
+  { value: "r900", label: t('timePosted.quarterHour') },
+  { value: "r1800", label: t('timePosted.halfHour') },
   { value: "r3600", label: t('timePosted.hour') },
   { value: "r86400", label: t('timePosted.day') },
   { value: "r604800", label: t('timePosted.week') },

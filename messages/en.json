@@ -91,6 +91,8 @@
     },
     "timePosted": {
       "any": "Any time",
+      "quarterHour": "Past 15 minutes",
+      "halfHour": "Past 30 minutes",
       "hour": "Past hour",
       "day": "Past 24 hours",
       "3days": "Past 3 days",
