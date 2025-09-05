@@ -18,13 +18,16 @@ export default function JobSearchOptimizer() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8 relative">
-          <div className="absolute top-0 left-0 flex gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle />
+        <div className="text-center mb-8">
+          {/* Botões de controle - responsivos para mobile */}
+          <div className="flex justify-center sm:justify-start items-center mb-4 sm:mb-6">
+            <div className="flex gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
           
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aras Finder</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aras Finder</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
             {t('description')}
           </p>
