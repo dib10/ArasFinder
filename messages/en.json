@@ -186,9 +186,7 @@
     "q3": "Is my search data saved?",
     "a3": "No. Aras Finder does not store any information about your searches. All the URL-building logic happens in your browser. Your privacy is fully respected.",
     "q4": "What does \"Powerful Mode (Experimental)\" mean?",
-    "a4": "Powerful Mode adds automatic exclusions to your search (e.g., if you search for \"Mid-level\", it excludes \"Junior\" and \"Internship\"). It is \"experimental\" because, although very effective, LinkedIn's algorithm can sometimes interpret these complex searches in unexpected ways. We recommend Precise Mode for most cases.",
-    "q5": "Why am I seeing ads on the site?",
-    "a5": "Aras Finder displays ads to help cover the maintenance and hosting costs of the tool, keeping it free for all users. The ads are provided by an external advertising network and are not authored by or the responsibility of us. We have no control over the specific content of the ads displayed, nor are we responsible for the advertised sites or products. We always recommend caution when clicking on any online ad."
+    "a4": "Powerful Mode adds automatic exclusions to your search (e.g., if you search for \"Mid-level\", it excludes \"Junior\" and \"Internship\"). It is \"experimental\" because, although very effective, LinkedIn's algorithm can sometimes interpret these complex searches in unexpected ways. We recommend Precise Mode for most cases."
   },
   "ContactPage": {
     "backLink": "Back to Home",

@@ -51,7 +51,6 @@ export default async function LocaleLayout({
         <meta name="google" content="notranslate" />
         <meta name="google-translate" content="notranslate" />
         <meta httpEquiv="Content-Language" content={locale} />
-        <meta name="monetag" content="c3b61d48dce7ac6b62e94cf9ed7cf13d" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-5J9T27K1SZ"
@@ -75,18 +74,6 @@ export default async function LocaleLayout({
             <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
-        <Script id="monetag-new-zone-script" strategy="afterInteractive">
-          {`
-            (function(d,z,s,c){s.src='//'+d+'/400/'+z;s.onerror=s.onload=E;function E(){c&&c();c=null}try{(document.body||document.documentElement).appendChild(s)}catch(e){E()}})('stoampaliy.net',9799324,document.createElement('script'),window._thcsctcg)
-          `}
-        </Script>
-
-        {/* Script Vemtoutcheeg */}
-        <Script id="vemtoutcheeg-script" strategy="afterInteractive">
-          {`
-            (s=>{s.dataset.zone=9799550,s.src='https://vemtoutcheeg.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
-          `}
-        </Script>
       </body>
     </html>
   );

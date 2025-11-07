@@ -186,9 +186,7 @@
     "q3": "Os meus dados de pesquisa são guardados?",
     "a3": "Não. O Aras Finder não armazena nenhuma informação sobre as suas pesquisas. Toda a lógica de construção da URL acontece no seu navegador. A sua privacidade é totalmente respeitada.",
     "q4": "O que significa \"Modo Poderoso (Experimental)\"?",
-    "a4": "O Modo Poderoso adiciona exclusões automáticas à sua busca (ex: se procura \"Pleno\", ele exclui \"Júnior\" e \"Estágio\"). É \"experimental\" porque, embora seja muito eficaz, o algoritmo do LinkedIn pode por vezes interpretar estas buscas complexas de formas inesperadas. Recomendamos o Modo Preciso para a maioria dos casos.",
-    "q5": "Por que estou vendo anúncios no site?",
-    "a5": "O Aras Finder exibe anúncios para ajudar a cobrir os custos de manutenção e hospedagem da ferramenta, mantendo-a gratuita para todos os usuários. Os anúncios são fornecidos por uma rede de publicidade externa e não são de nossa autoria ou responsabilidade. Não temos controle sobre o conteúdo específico dos anúncios exibidos, nem somos responsáveis pelos sites ou produtos anunciados. Recomendamos sempre cautela ao clicar em qualquer anúncio online."
+    "a4": "O Modo Poderoso adiciona exclusões automáticas à sua busca (ex: se procura \"Pleno\", ele exclui \"Júnior\" e \"Estágio\"). É \"experimental\" porque, embora seja muito eficaz, o algoritmo do LinkedIn pode por vezes interpretar estas buscas complexas de formas inesperadas. Recomendamos o Modo Preciso para a maioria dos casos."
   },
   "ContactPage": {
     "backLink": "Voltar para a Home",
