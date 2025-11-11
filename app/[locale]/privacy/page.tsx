@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl';
 
 export default function Privacy() {
