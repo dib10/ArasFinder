@@ -98,7 +98,8 @@
       "3days": "Past 3 days",
       "week": "Past week",
       "2weeks": "Past 2 weeks",
-      "month": "Past month"
+      "month": "Past month",
+      "last5Hours": "Last 5 hours"
     },
     "workModel": {
       "all": "All",
@@ -269,8 +270,7 @@
   "Metadata": {
     "title": "Aras Finder - Smart Job Search",
     "description": "The intelligent job finder that builds precise URLs on LinkedIn and Indeed using boolean operators and advanced filters."
-  }
-  ,
+  },
   "SupportBanner": {
     "text": "If Aras Finder helps you find jobs faster, consider supporting the project.",
     "cta": "Buy me a coffee"
