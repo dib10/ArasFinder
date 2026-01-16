@@ -16,6 +16,7 @@ export const getLinkedinTimePostedOptions = (t: any) => [
   { value: "r1800", label: t('timePosted.halfHour') },
   { value: "r3600", label: t('timePosted.hour') },
   { value: "r18000", label: t('timePosted.last5Hours') },
+  { value: "r36000", label: t('timePosted.last10Hours') },
   { value: "r86400", label: t('timePosted.day') },
   { value: "r604800", label: t('timePosted.week') },
   { value: "r2592000", label: t('timePosted.month') },

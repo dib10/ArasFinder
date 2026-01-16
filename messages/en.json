@@ -99,7 +99,8 @@
       "week": "Past week",
       "2weeks": "Past 2 weeks",
       "month": "Past month",
-      "last5Hours": "Last 5 hours"
+      "last5Hours": "Last 5 hours",
+      "last10Hours": "Last 10 hours"
     },
     "workModel": {
       "all": "All",

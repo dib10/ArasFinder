@@ -99,7 +99,8 @@
       "week": "Última semana",
       "2weeks": "Últimas 2 semanas",
       "month": "Último mês",
-      "last5Hours": "Últimas 5 horas"
+      "last5Hours": "Últimas 5 horas",
+      "last10Hours": "Últimas 10 horas"
     },
     "workModel": {
       "all": "Todos",
