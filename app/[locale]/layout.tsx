@@ -6,19 +6,19 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { Footer } from "@/components/domain/Footer"
 import { SupportBanner } from "@/components/domain/SupportBanner"
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, getTranslations} from 'next-intl/server';
-import {notFound} from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 const locales = ['pt-BR', 'en'];
 
 // Função para gerar metadados dinâmicos
-export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
-  const {locale} = await params; // Aguarda os params (next 15)
-  const t = await getTranslations({locale, namespace: 'Metadata'});
- 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params; // Aguarda os params (next 15)
+  const t = await getTranslations({ locale, namespace: 'Metadata' });
+
   return {
     title: t('title'),
     description: t('description'),
@@ -35,10 +35,10 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>; // Mudança: agora é uma Promise
+  params: Promise<{ locale: string }>; // Mudança: agora é uma Promise
 }) {
-  const {locale} = await params; // Mudança: aguarda os params
-  
+  const { locale } = await params; // Mudança: aguarda os params
+
   if (!locales.includes(locale as any)) {
     notFound();
   }
@@ -67,8 +67,13 @@ export default async function LocaleLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <div className="fixed inset-0 -z-10 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob dark:bg-blue-900/30"></div>
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000 dark:bg-cyan-900/30"></div>
+            <div className="absolute -bottom-8 left-1/3 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000 dark:bg-indigo-900/30"></div>
+          </div>
           <NextIntlClientProvider messages={messages}>
-            <main>{children}</main>
+            <main className="relative z-10">{children}</main>
             <SupportBanner />
             <Footer />
             <Toaster />
