@@ -81,7 +81,7 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <HelpCircle className="h-4 w-4 text-muted-foreground cursor-help" />
+                    <HelpCircle className="h-4 w-4 text-muted-foreground cursor-help hidden md:block" />
                   </TooltipTrigger>
                   <TooltipContent className="max-w-xs">
                     <p>{tFilters('keywordOperator.tooltip')}</p>
@@ -89,6 +89,9 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
                 </Tooltip>
               </TooltipProvider>
             </div>
+            <p className="text-xs text-muted-foreground md:hidden">
+              {tFilters('keywordOperator.tooltip')}
+            </p>
           </div>
 
           <div className="space-y-2">
