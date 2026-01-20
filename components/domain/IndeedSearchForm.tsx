@@ -4,14 +4,16 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Briefcase } from "lucide-react"
+import { Switch } from "@/components/ui/switch"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Briefcase, HelpCircle } from "lucide-react"
 import { useIndeedSearch } from "@/hooks/useIndeedSearch"
 import { GeneratedUrlCard } from "./GeneratedUrlCard"
 import { useTranslations } from 'next-intl'
-import { 
-  getSeniorityOptions, 
-  getIndeedTimePostedOptions, 
-  getWorkModelOptions 
+import {
+  getSeniorityOptions,
+  getIndeedTimePostedOptions,
+  getWorkModelOptions
 } from "@/config/filters"
 
 interface IndeedSearchFormProps {
@@ -30,10 +32,12 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
     indeedLocation,
     indeedWorkModel,
     indeedGeneratedUrl,
+    indeedKeywordOperator,
     setIndeedSeniority,
     setIndeedTimePosted,
     setIndeedLocation,
     setIndeedWorkModel,
+    setIndeedKeywordOperator,
     generateIndeedUrl,
   } = useIndeedSearch()
 
@@ -65,6 +69,26 @@ export function IndeedSearchForm({ keywords, setKeywords, exclusionKeywords, set
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />
+            <div className="flex items-center space-x-2 pt-2">
+              <Switch
+                id="indeed-keyword-operator"
+                checked={indeedKeywordOperator === "OR"}
+                onCheckedChange={(checked) => setIndeedKeywordOperator(checked ? "OR" : "AND")}
+              />
+              <Label htmlFor="indeed-keyword-operator" className="text-sm cursor-pointer text-muted-foreground">
+                {tFilters('keywordOperator.label')}
+              </Label>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className="h-4 w-4 text-muted-foreground cursor-help" />
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    <p>{tFilters('keywordOperator.tooltip')}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
           </div>
 
           <div className="space-y-2">

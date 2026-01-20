@@ -30,6 +30,19 @@ export default function ComoFunciona() {
 
         <Card className="mb-6">
           <CardHeader>
+            <CardTitle className="text-2xl">{t('andOrTitle')}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-700 dark:text-gray-300">
+            <p>{t('andOrText1')}</p>
+            <p className="font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded text-sm">{t('andOrExample1')}</p>
+            <p>{t('andOrText2')}</p>
+            <p className="font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded text-sm">{t('andOrExample2')}</p>
+            <p>{t('andOrText3')}</p>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
             <CardTitle className="text-2xl">{t('exclusionTitle')}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-gray-700 dark:text-gray-300">
@@ -49,14 +62,14 @@ export default function ComoFunciona() {
             <CardTitle className="text-2xl">{t('modesTitle')}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div>
-                <h4 className="font-semibold">{t('linkedinModesTitle')}</h4>
-                <p>{t('linkedinModesText_part1')} <strong>{t('linkedinModesText_part2')}</strong> {t('linkedinModesText_part3')} <strong>{t('linkedinModesText_part4')}</strong> {t('linkedinModesText_part5')}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">{t('indeedOptimizationTitle')}</h4>
-                <p>{t('indeedOptimizationText_part1')} <strong>"-"</strong> {t('indeedOptimizationText_part2')}</p>
-              </div>
+            <div>
+              <h4 className="font-semibold">{t('linkedinModesTitle')}</h4>
+              <p>{t('linkedinModesText_part1')} <strong>{t('linkedinModesText_part2')}</strong> {t('linkedinModesText_part3')} <strong>{t('linkedinModesText_part4')}</strong> {t('linkedinModesText_part5')}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">{t('indeedOptimizationTitle')}</h4>
+              <p>{t('indeedOptimizationText_part1')} <strong>"-"</strong> {t('indeedOptimizationText_part2')}</p>
+            </div>
           </CardContent>
         </Card>
       </div>

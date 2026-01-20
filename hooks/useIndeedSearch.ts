@@ -9,6 +9,7 @@ export function useIndeedSearch() {
   const [indeedLocation, setIndeedLocation] = useState("")
   const [indeedWorkModel, setIndeedWorkModel] = useState("any")
   const [indeedGeneratedUrl, setIndeedGeneratedUrl] = useState("")
+  const [indeedKeywordOperator, setIndeedKeywordOperator] = useState<"AND" | "OR">("AND")
 
   const { toast } = useToast()
   const t = useTranslations('ToastMessages');
@@ -25,7 +26,7 @@ export function useIndeedSearch() {
     }
 
     const baseUrl = locale === 'en' ? "https://www.indeed.com/jobs" : "https://br.indeed.com/jobs";
-    
+
     const params = new URLSearchParams()
 
     const optimizedKeywords = buildIndeedOptimizedKeywords(
@@ -33,7 +34,8 @@ export function useIndeedSearch() {
       indeedSeniority,
       indeedWorkModel,
       exclusionKeywords,
-      locale
+      locale,
+      indeedKeywordOperator
     )
     params.append("q", optimizedKeywords)
 
@@ -47,7 +49,7 @@ export function useIndeedSearch() {
       const remoteKeyword = locale === 'en' ? 'remote' : 'remoto';
       finalLocation = remoteKeyword;
     }
-    
+
     if (finalLocation) {
       params.append("l", sanitizeUserInput(finalLocation))
     }
@@ -75,10 +77,12 @@ export function useIndeedSearch() {
     indeedLocation,
     indeedWorkModel,
     indeedGeneratedUrl,
+    indeedKeywordOperator,
     setIndeedSeniority,
     setIndeedTimePosted,
     setIndeedLocation,
     setIndeedWorkModel,
+    setIndeedKeywordOperator,
     generateIndeedUrl,
   }
 }

@@ -1,6 +1,6 @@
 import { exclusionsByLocale } from "@/config/filters"
 
-function processAndQuoteKeywords(keywords: string): string {
+function processAndQuoteKeywords(keywords: string, operator: "AND" | "OR" = "AND"): string {
   if (!keywords.trim()) return ""
 
   const booleanOperators = /\b(AND|OR|NOT)\b/i
@@ -13,7 +13,7 @@ function processAndQuoteKeywords(keywords: string): string {
     .map((keyword) => keyword.trim())
     .filter((keyword) => keyword.length > 0)
     .map((keyword) => `"${keyword}"`)
-    .join(' AND ')
+    .join(` ${operator} `)
 }
 
 /**
@@ -24,11 +24,12 @@ export function buildLinkedInOptimizedKeywords(
   selectedSeniority: string,
   searchMode: string,
   exclusionKeywords?: string,
-  locale: string = "pt-BR"
+  locale: string = "pt-BR",
+  keywordOperator: "AND" | "OR" = "AND"
 ): string {
   if (!baseKeywords.trim()) return ""
 
-  let optimizedKeywords = processAndQuoteKeywords(baseKeywords)
+  let optimizedKeywords = processAndQuoteKeywords(baseKeywords, keywordOperator)
 
   // Exclusões manuais via NOT "termo"
   if (exclusionKeywords && exclusionKeywords.trim()) {
@@ -50,7 +51,7 @@ export function buildLinkedInOptimizedKeywords(
   if (searchMode === "poderoso" && selectedSeniority !== "any") {
     const localeKey = locale === "en" ? "en" : "pt-BR"
     const exclusions = exclusionsByLocale[localeKey]?.linkedin?.[selectedSeniority as keyof typeof exclusionsByLocale[typeof localeKey]["linkedin"]]
-    
+
     if (exclusions) {
       const excludeTerms = exclusions.map((term: string) => `NOT "${term}"`).join(" ")
       optimizedKeywords = `${optimizedKeywords} ${excludeTerms}`
@@ -68,12 +69,13 @@ export function buildIndeedOptimizedKeywords(
   selectedSeniority: string,
   workModel: string,
   exclusionKeywords?: string,
-  locale: string = "pt-BR"
+  locale: string = "pt-BR",
+  keywordOperator: "AND" | "OR" = "AND"
 ): string {
   if (!baseKeywords.trim()) return "";
 
-  // Processa com aspas e troca AND por espaço, que é o padrão do Indeed
-  let optimizedKeywords = processAndQuoteKeywords(baseKeywords).replace(/\s+AND\s+/g, ' ');
+  // Processa com aspas e troca operador por espaço, que é o padrão do Indeed
+  let optimizedKeywords = processAndQuoteKeywords(baseKeywords, keywordOperator).replace(/\s+(AND|OR)\s+/g, ' ');
 
   // Exclusões manuais via -"termo"
   if (exclusionKeywords && exclusionKeywords.trim()) {
@@ -81,7 +83,7 @@ export function buildIndeedOptimizedKeywords(
       .split(',')
       .map((term) => term.trim())
       .filter((term) => term.length > 0)
-      .map((term) => `-"${term}"`) 
+      .map((term) => `-"${term}"`)
       .join(' ');
     optimizedKeywords = `${optimizedKeywords} ${manualExclusions}`;
   }
@@ -90,7 +92,7 @@ export function buildIndeedOptimizedKeywords(
   if (selectedSeniority !== "any") {
     const localeKey = locale === "en" ? "en" : "pt-BR";
     const exclusions = exclusionsByLocale[localeKey]?.indeed?.[selectedSeniority as keyof typeof exclusionsByLocale[typeof localeKey]["indeed"]];
-    
+
     if (exclusions) {
       const excludeTerms = exclusions.map((term: string) => `-"${term}"`).join(" "); // <-- CORRIGIDO para usar hífen
       optimizedKeywords = `${optimizedKeywords} ${excludeTerms}`;

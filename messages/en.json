@@ -6,12 +6,14 @@
       "linkedin": {
         "precise": "• Precise Mode: Uses only native filters (f_E, f_TPR, f_WT)",
         "powerful": "• Powerful Mode: Combines native filters + NOT operators - In testing, may show inconsistencies",
-        "keywords": "• Clean keywords or with exclusions according to mode"
+        "keywords": "• Clean keywords or with exclusions according to mode",
+        "andOr": "• Comma becomes AND or OR based on selected switch"
       },
       "indeed": {
         "exclusions": "• Uses \"-\" operator for exclusions (ex: -Mid -Senior)",
         "remote": "• Remote work via keyword + special parameter (sc)",
-        "dateFilter": "• Date filter via \"fromage\" parameter (1, 3, 7, 14 days)"
+        "dateFilter": "• Date filter via \"fromage\" parameter (1, 3, 7, 14 days)",
+        "andOr": "• Comma becomes AND or OR based on selected switch"
       }
     }
   },
@@ -111,6 +113,11 @@
     "searchMode": {
       "precise": "Precise (Recommended)",
       "powerful": "Powerful (Experimental)"
+    },
+    "keywordOperator": {
+      "label": "Comma = OR (any word)",
+      "hint": "Off: comma = AND (all words)",
+      "tooltip": "The comma between words becomes a search operator. Off: comma becomes AND (jobs with ALL words). On: comma becomes OR (jobs with ANY word)."
     }
   },
   "GeneratedUrl": {
@@ -156,6 +163,12 @@
     "buildSearchText1_part4": "\"Software Engineer\" AND \"React\"",
     "buildSearchText1_part5": "for LinkedIn, ensuring both terms are present in the results.",
     "buildSearchText2": "The true power of the tool lies in its ability to exclude unwanted terms, cleaning up the results and saving you time.",
+    "andOrTitle": "AND or OR Operator: Choose How to Search",
+    "andOrText1": "By default, the comma between keywords works as AND, meaning jobs must contain ALL words. For example:",
+    "andOrExample1": "python, php, developer → \"python\" AND \"php\" AND \"developer\"",
+    "andOrText2": "But if you enable the \"Comma = OR\" switch, the search will accept ANY of the words:",
+    "andOrExample2": "python, php, developer → \"python\" OR \"php\" OR \"developer\"",
+    "andOrText3": "This is useful when you have multiple technologies or roles you'd accept and want to see all options at once!",
     "exclusionTitle": "Manual and Automatic Exclusion",
     "manualExclusionTitle": "Manual Keyword Exclusion",
     "manualExclusionText_part1": "With the \"Exclude Keywords\" field, you have full control. If you want jobs for \"React\" but not \"Angular\" or \"Vue\", just add them to the exclusion field. The tool will add",

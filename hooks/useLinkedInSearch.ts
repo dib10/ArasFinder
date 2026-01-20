@@ -12,6 +12,7 @@ export function useLinkedInSearch() {
   const [linkedinGeneratedUrl, setLinkedinGeneratedUrl] = useState("")
   const [linkedinSearchMode, setLinkedinSearchMode] = useState("preciso")
   const [linkedinEasyApply, setLinkedinEasyApply] = useState(false)
+  const [linkedinKeywordOperator, setLinkedinKeywordOperator] = useState<"AND" | "OR">("AND")
 
   const { toast } = useToast()
   const locale = useLocale()
@@ -35,14 +36,15 @@ export function useLinkedInSearch() {
       linkedinSeniority,
       linkedinSearchMode,
       exclusionKeywords,
-      locale
+      locale,
+      linkedinKeywordOperator
     )
     params.append("keywords", optimizedKeywords)
 
     // Adiciona padrão para EN e PT-BR
     let finalLocation = linkedinLocation.trim();
     if (locale === 'pt-BR' && !finalLocation) {
-      finalLocation = "Brazil"; 
+      finalLocation = "Brazil";
     } else if (locale === 'en' && !finalLocation) {
       finalLocation = "United States"; // Padrão para a interface em inglês
     }
@@ -68,8 +70,8 @@ export function useLinkedInSearch() {
         params.append("f_E", seniorityValue)
       }
     }
-    
-    if(linkedinEasyApply){
+
+    if (linkedinEasyApply) {
       params.append("f_AL", "true")
     }
 
@@ -90,12 +92,14 @@ export function useLinkedInSearch() {
     linkedinGeneratedUrl,
     linkedinSearchMode,
     linkedinEasyApply,
+    linkedinKeywordOperator,
     setLinkedinSeniority,
     setLinkedinTimePosted,
     setLinkedinLocation,
     setLinkedinWorkModel,
     setLinkedinSearchMode,
     setLinkedinEasyApply,
+    setLinkedinKeywordOperator,
     generateLinkedInUrl,
   }
 }

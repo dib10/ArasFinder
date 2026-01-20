@@ -6,12 +6,14 @@
       "linkedin": {
         "precise": "• Modo Preciso: Usa apenas filtros nativos (f_E, f_TPR, f_WT)",
         "powerful": "• Modo Poderoso: Combina filtros nativos + operadores NOT - Em testes, pode apresentar inconsistências",
-        "keywords": "• Keywords limpas ou com exclusões conforme o modo"
+        "keywords": "• Keywords limpas ou com exclusões conforme o modo",
+        "andOr": "• Vírgula vira AND ou OR conforme o switch selecionado"
       },
       "indeed": {
         "exclusions": "• Usa operador \"-\" para exclusões (ex: -Pleno -Senior)",
         "remote": "• Trabalho remoto via palavra-chave + parâmetro especial (sc)",
-        "dateFilter": "• Filtro de data via parâmetro \"fromage\" (1, 3, 7, 14 dias)"
+        "dateFilter": "• Filtro de data via parâmetro \"fromage\" (1, 3, 7, 14 dias)",
+        "andOr": "• Vírgula vira AND ou OR conforme o switch selecionado"
       }
     }
   },
@@ -111,6 +113,11 @@
     "searchMode": {
       "precise": "Preciso (Recomendado)",
       "powerful": "Poderoso (Experimental)"
+    },
+    "keywordOperator": {
+      "label": "Vírgula = OR (qualquer palavra)",
+      "hint": "Desligado: vírgula = AND (todas as palavras)",
+      "tooltip": "A vírgula entre palavras vira um operador de busca. Desligado: vírgula vira AND (vagas com TODAS as palavras). Ligado: vírgula vira OR (vagas com QUALQUER palavra)."
     }
   },
   "GeneratedUrl": {
@@ -156,6 +163,12 @@
     "buildSearchText1_part4": "\"Engenheiro de Software\" AND \"React\"",
     "buildSearchText1_part5": "para o LinkedIn, garantindo que ambos os termos estejam presentes nos resultados.",
     "buildSearchText2": "O verdadeiro poder da ferramenta está na capacidade de excluir termos indesejados, limpando os resultados e poupando o seu tempo.",
+    "andOrTitle": "Operador AND ou OR: Escolha Como Buscar",
+    "andOrText1": "Por padrão, a vírgula entre palavras-chave funciona como AND, ou seja, as vagas devem conter TODAS as palavras. Por exemplo:",
+    "andOrExample1": "python, php, desenvolvedor → \"python\" AND \"php\" AND \"desenvolvedor\"",
+    "andOrText2": "Mas se você ativar o switch \"Vírgula = OR\", a busca passa a aceitar QUALQUER uma das palavras:",
+    "andOrExample2": "python, php, desenvolvedor → \"python\" OR \"php\" OR \"desenvolvedor\"",
+    "andOrText3": "Isso é útil quando você tem várias tecnologias ou cargos que aceita e quer ver todas as opções de uma vez!",
     "exclusionTitle": "Exclusão Manual e Automática",
     "manualExclusionTitle": "Exclusão Manual de Palavras-chave",
     "manualExclusionText_part1": "Com o campo \"Excluir Palavras-chave\", você tem controlo total. Se quiser vagas de \"React\" mas não de \"Angular\" ou \"Vue\", basta adicioná-las no campo de exclusão. A ferramenta irá adicionar",

@@ -14,7 +14,7 @@ export default function JobSearchOptimizer() {
   const [keywords, setKeywords] = useState("")
   const [exclusionKeywords, setExclusionKeywords] = useState("")
   const t = useTranslations('HomePage')
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto">
@@ -26,7 +26,7 @@ export default function JobSearchOptimizer() {
               <ThemeToggle />
             </div>
           </div>
-          
+
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aras Finder</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
             {t('description')}
@@ -54,8 +54,8 @@ export default function JobSearchOptimizer() {
           </TabsList>
 
           <TabsContent value="linkedin">
-            <LinkedInSearchForm 
-              keywords={keywords} 
+            <LinkedInSearchForm
+              keywords={keywords}
               setKeywords={setKeywords}
               exclusionKeywords={exclusionKeywords}
               setExclusionKeywords={setExclusionKeywords}
@@ -63,8 +63,8 @@ export default function JobSearchOptimizer() {
           </TabsContent>
 
           <TabsContent value="indeed">
-            <IndeedSearchForm 
-              keywords={keywords} 
+            <IndeedSearchForm
+              keywords={keywords}
               setKeywords={setKeywords}
               exclusionKeywords={exclusionKeywords}
               setExclusionKeywords={setExclusionKeywords}
@@ -83,12 +83,14 @@ export default function JobSearchOptimizer() {
               <p className="text-sm">{t('howItWorks.linkedin.precise')}</p>
               <p className="text-sm">{t('howItWorks.linkedin.powerful')}</p>
               <p className="text-sm">{t('howItWorks.linkedin.keywords')}</p>
+              <p className="text-sm">{t('howItWorks.linkedin.andOr')}</p>
             </div>
             <div>
               <p className="text-sm font-semibold">Indeed:</p>
               <p className="text-sm">{t('howItWorks.indeed.exclusions')}</p>
               <p className="text-sm">{t('howItWorks.indeed.remote')}</p>
               <p className="text-sm">{t('howItWorks.indeed.dateFilter')}</p>
+              <p className="text-sm">{t('howItWorks.indeed.andOr')}</p>
             </div>
           </CardContent>
         </Card>

@@ -5,16 +5,17 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Search } from "lucide-react"
+import { Search, HelpCircle } from "lucide-react"
 import { useLinkedInSearch } from "@/hooks/useLinkedInSearch"
 import { GeneratedUrlCard } from "./GeneratedUrlCard"
-import {Switch} from "@/components/ui/switch"
+import { Switch } from "@/components/ui/switch"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useTranslations } from 'next-intl'
-import { 
-  getSeniorityOptions, 
-  getLinkedinTimePostedOptions, 
-  getWorkModelOptions, 
-  getSearchModeOptions 
+import {
+  getSeniorityOptions,
+  getLinkedinTimePostedOptions,
+  getWorkModelOptions,
+  getSearchModeOptions
 } from "@/config/filters"
 
 interface LinkedInSearchFormProps {
@@ -28,7 +29,7 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
   const t = useTranslations('LinkedInForm')
   const tFilters = useTranslations('Filters')
   const tGeneratedUrl = useTranslations('GeneratedUrl')
-  
+
   const {
     linkedinSeniority,
     linkedinTimePosted,
@@ -44,15 +45,17 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
     generateLinkedInUrl,
     linkedinEasyApply,
     setLinkedinEasyApply,
+    linkedinKeywordOperator,
+    setLinkedinKeywordOperator,
   } = useLinkedInSearch()
 
   const seniorityOptions = React.useMemo(() => getSeniorityOptions(tFilters), [tFilters])
   const linkedinTimePostedOptions = React.useMemo(() => getLinkedinTimePostedOptions(tFilters), [tFilters])
   const workModelOptions = React.useMemo(() => getWorkModelOptions(tFilters), [tFilters])
   const searchModeOptions = React.useMemo(() => getSearchModeOptions(tFilters), [tFilters])
-  
-  const generatedUrlTitle = React.useMemo(() => 
-    tGeneratedUrl('title', { platform: 'LinkedIn' }), 
+
+  const generatedUrlTitle = React.useMemo(() =>
+    tGeneratedUrl('title', { platform: 'LinkedIn' }),
     [tGeneratedUrl]
   )
 
@@ -80,6 +83,26 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
             />
+            <div className="flex items-center space-x-2 pt-2">
+              <Switch
+                id="linkedin-keyword-operator"
+                checked={linkedinKeywordOperator === "OR"}
+                onCheckedChange={(checked) => setLinkedinKeywordOperator(checked ? "OR" : "AND")}
+              />
+              <Label htmlFor="linkedin-keyword-operator" className="text-sm cursor-pointer text-muted-foreground">
+                {tFilters('keywordOperator.label')}
+              </Label>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className="h-4 w-4 text-muted-foreground cursor-help" />
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    <p>{tFilters('keywordOperator.tooltip')}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
           </div>
 
           <div className="space-y-2">
@@ -192,18 +215,18 @@ export function LinkedInSearchForm({ keywords, setKeywords, exclusionKeywords, s
             </div>
           </div>
 
-           <div className="space-y-2 flex flex-col justify-end">
-                <div className="flex items-center space-x-2">
-                    <Switch
-                        id="linkedin-easy-apply"
-                        checked={linkedinEasyApply}
-                        onCheckedChange={setLinkedinEasyApply}
-                    />
-                    <Label htmlFor="linkedin-easy-apply" className="cursor-pointer">
-                        {t('easyApply.label')}
-                    </Label>
-                </div>
+          <div className="space-y-2 flex flex-col justify-end">
+            <div className="flex items-center space-x-2">
+              <Switch
+                id="linkedin-easy-apply"
+                checked={linkedinEasyApply}
+                onCheckedChange={setLinkedinEasyApply}
+              />
+              <Label htmlFor="linkedin-easy-apply" className="cursor-pointer">
+                {t('easyApply.label')}
+              </Label>
             </div>
+          </div>
 
           <Button
             onClick={() => generateLinkedInUrl(keywords, exclusionKeywords)}
