@@ -2,6 +2,8 @@
 
 O **Aras Finder** é uma ferramenta web que monta URLs de busca de vagas para o **LinkedIn** e o **Indeed**. Ela combina palavras-chave, exclusões e filtros de cada plataforma para que a pessoa usuária possa abrir uma busca mais direcionada ou copiar o link gerado.
 
+[**Acessar a aplicação em produção: aras-finder.vercel.app**](https://aras-finder.vercel.app/)
+
 > A aplicação não coleta vagas, não faz scraping, não envia candidaturas e não consulta uma API de empregos. Ela constrói a URL no navegador; a pesquisa e os resultados são exibidos pela plataforma escolhida.
 
 ## O que a ferramenta oferece
